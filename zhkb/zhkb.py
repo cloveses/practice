@@ -70,11 +70,12 @@ def is_out(zh_data):
     out_flags = ('市内转','跨市转','跨省转','跨境转')
     for zh in zh_data:
         for out_flag in out_flags:
-            if zh.startswith(out_flag):
+            if zh.zhtype.startswith(out_flag):
                 return True
 
 def has_local(zh_data):
     """判别是否有县内转学记录"""
+    zh_data = [zh.zhtype for zh in zh_data]
     for zh in zh_data:
         if zh.startswith('县区内转'):
             return True
@@ -84,28 +85,38 @@ def has_local(zh_data):
 def get_reg_data():
     for stud in GradeY18.select():
         if stud.idcode:
-            zh_data = select(s.zhtype for s in StudZhAll if s.idcode==stud.idcode  and ('初中' in s.zhsrc or '初中' in s.zhdes))[:]
+            zh_data = select(zh for zh in StudZhAll if zh.idcode==stud.idcode 
+                and ('初中' in zh.zhsrc or '初中' in zh.zhdes))[:]
             if zh_data and is_out(zh_data):
-                # print(zh_data)
                 stud.outzh = 1
         else:
             # 无身份证号，暂放无县外转入记录
             print(stud.sch,stud.name,stud.gsrid,'No id number!')
 
-# # 用姓名的唯一性或姓名+学校作为关键字来判别无身份证号或修改过身份证号学生转学情况
-# @db_session
-# def check_regdata_name_sch():
-#     nooutstuds = GradeY18.select(lambda s:s.outzh==None)
-#     # 用姓名+学校判别
-#     for nooutstud in nooutstuds:
-#         has_zhs = select(s.zhtype for s in StudZhAll 
-#             if s.name==nooutstud.name and s.sch==nooutstud.sch  and ('初中' in s.zhsrc or '初中' in s.zhdes))[:]
-#         if has_zhs and is_out(has_zhs):
-#             if count(select(s for s in GradeY18 if s.name==nooutstud.name and s.sch==nooutstud.sch)) >= 2:
-#                 print(nooutstud.name,nooutstud.sch,"Needs person check!")
-#             else:
-#                 print('Move a stud from NoOutZh to OutZh:',nooutstud.name,nooutstud.sch)
-#                 nooutstud.outzh =1
+
+# 用姓名的唯一性或姓名+学校作为关键字来判别无身份证号或修改过身份证号学生转学情况
+@db_session
+def check_regdata_name_sch():
+    nooutstuds = select(s.name for s in GradeY18 if s.outzh==None)
+    # 用姓名+学校判别
+    pre_datas = []
+    for nooutstud in nooutstuds:
+        cur_zh_datas = select(s for s in StudZhAll 
+            if s.name==nooutstud and ('初中' in s.zhsrc or '初中' in s.zhdes))[:]
+        if cur_zh_datas and is_out(cur_zh_datas):
+            studs = select(s for s in GradeY18 if s.name==nooutstud and s.outzh == None)[:]
+            pre_datas.append((studs,cur_zh_datas))
+    stud_datas = []
+    zh_datas = []
+    for studs,cur_zh_datas in pre_datas:
+        for stud in studs:
+            # print(stud.to_dict())
+            stud_datas.append(list(stud.to_dict().values()))
+        for cur_zh_data in cur_zh_datas:
+            # print(cur_zh_data.to_dict())
+            zh_datas.append(list(cur_zh_data.to_dict().values()))
+    save_datas_xlsx('待核查县外转学生名单.xlsx',stud_datas)
+    save_datas_xlsx('待核查县外转学数据.xlsx',zh_datas)
 
 
 # 依据身份证号从OutZh表分拣出跨省市县转学，又进行了县内转学的学生
@@ -113,30 +124,34 @@ def get_reg_data():
 def get_out_local():
     for out_stud in GradeY18.select(lambda s:s.outzh==1):
         if out_stud.idcode:
-            zh_data = select(s.zhtype for s in StudZhAll 
-                if s.idcode==out_stud.idcode)[:]
+            zh_data = select(zh for zh in StudZhAll if zh.idcode==out_stud.idcode 
+                and ('初中' in zh.zhsrc or '初中' in zh.zhdes))[:]
             # print(zh_data)
-            if has_local(zh_data):
+            if zh_data and has_local(zh_data):
                 out_stud.outzh = 2
         else:
             # 无身份证号，不做操作，暂放无县内转入记录
             print(stud.sch,stud.name,stud.gsrid,'No id number!')
 
-# # 依据姓名+学校查找有县外转学记录，又有县内转学记录的
-# @db_session
-# def get_out_local_by_name():
-#     for out_stud in GradeY18.select(lambda s:s.outzh==1):
-#         has_zhs = select(s.zhtype for s in StudZhAll 
-#             if s.name==out_stud.name and ('初中' in s.zhsrc or '初中' in s.zhdes))[:]
-#         if out_stud.name == '田高':
-#             print('tg',has_zhs)
-#         if has_zhs and has_local(has_zhs):
-#             print(has_zhs,out_stud.name,out_stud.sch)
-#             if count(select(s for s in GradeY18 if s.name==out_stud.name)) >= 2:
-#                 print(out_stud.name,out_stud.sch,"Needs person check!")
-#             else:
-#                 print('Move a stud from OutZh to OutZhLocal:',out_stud.name,out_stud.sch)
-#                 out_stud.outzh = 2
+# 依据姓名查找需要核对的有县外转学记录，又有县内转学记录的
+@db_session
+def get_out_local_by_name():
+    need_person_checks = []
+    for stud_name in select(s.name for s in GradeY18 if s.outzh == 1):
+        zh_datas = select(zh for zh in StudZhAll if zh.name == stud_name 
+            and ('初中' in zh.zhsrc or '初中' in zh.zhdes))[:]
+        if zh_datas and has_local(zh_datas):
+            studs = select(s for s in GradeY18 if s.outzh == 1 and s.name == stud_name)[:]
+            need_person_checks.append((studs,zh_datas))
+    stud_datas = []
+    zh_datas = []
+    for studs,zhs in need_person_checks:
+        for stud in studs:
+            stud_datas.append(list(stud.to_dict().values()))
+        for zh in zhs:
+            zh_datas.append(list(zh.to_dict().values()))
+    save_datas_xlsx('待核查县外且县内转学生名单.xlsx',stud_datas)
+    save_datas_xlsx('待核查县外且县内转学数据.xlsx',zh_datas)
 
 
 # 依据身份证从无县外转学记录表（NoOutZh）中分拣出有县内转学记录LocalZh和无县内转学记录NoZh
@@ -144,8 +159,9 @@ def get_out_local():
 def get_localzh_or_not():
     for stud in GradeY18.select(lambda s:s.outzh==None):
         if stud.idcode:
-            zh_data = select(s.zhtype for s in StudZhAll if s.idcode==stud.idcode)[:]
-            if zh_data:
+            zh_data = select(zh for zh in StudZhAll if zh.idcode==stud.idcode 
+                and ('初中' in zh.zhsrc or '初中' in zh.zhdes))[:]
+            if zh_data and has_local(zh_data):
                 # print(zh_data)
                 stud.localzh = 1
         else:
@@ -153,39 +169,25 @@ def get_localzh_or_not():
             print(stud.sch,stud.name,stud.gsrid,'No id number!')
 
 
-# # # 用姓名+学校作为关键字来判别无身份证号或修改过身份证号（NoZh)学生有无县内转学情况
-# @db_session
-# def check_localzh_name_sch():
-#     need_person_checks = []
-#     for nozhstud in GradeY18.select(lambda s:s.localzh==None):
-#         has_zhs = select(s.zhtype for s in StudZhAll 
-#             if s.name==nozhstud.name and s.sch==nozhstud.sch)[:]
-#         if has_zhs:
-#             if count(select(s for s in GradeY18 if s.name==nozhstud.name and s.sch==nozhstud.sch and s.localzh==None)) >= 2:
-#                 print(nozhstud.name,nozhstud.sch,"Needs person check!")
-#                 need_person_checks.append(nozhstud)
-#             else:
-#                 print('Move a stud from NoZh to LocalZh:',nozhstud.name,nozhstud.sch)
-#                 nozhstud.localzh = 1
-    # print("The following data need to be examined manually...")
-    # for nozhstud in need_person_checks:
-    #     for zh_info in select(s for s in StudZhAll if s.name==nozhstud.name and s.sch==nozhstud.sch):
-    #         print('Stud info:')
-    #         print(nozhstud.to_dict())
-    #         print('Zh info:')
-    #         print(zh_info.to_dict())
-    # zh_records = []
-    # stud_check = []
-    # zh_keys = ('gsrid','dsrid','idcode','name','sex','birth','sch','zhtype','optdate','zhsrc','zhdes')
-    # stud_keys = ('sch','grade','sclass','gsrid','ssrid','dsrid','name','idcode','sex')
-    # for nozhstud in need_person_checks:
-    #     nozhstud_dict = nozhstud.to_dict()
-    #     stud_check.append([nozhstud_dict[i] for i in stud_keys])
-    #     for zh_info in select(s for s in StudZhAll if s.name==nozhstud.name and s.sch==nozhstud.sch):
-    #         info_dict = zh_info.to_dict()
-    #         zh_records.append([info_dict[i] for i in zh_keys])
-    # save_datas_xlsx('待检查的转学记录.xlsx',zh_records)
-    # save_datas_xlsx('待检查的学生信息.xlsx',stud_check)
+# # 用姓名作为关键字来收集无身份证号或修改过身份证号（NoZh)学生有无县内转学情况供核对
+@db_session
+def check_localzh_name_sch():
+    need_person_checks = []
+    for stud_name in select(s.name for s in GradeY18 if s.localzh == None):
+        zh_datas = select(zh for zh in StudZhAll 
+            if zh.name==stud_name and ('初中' in zh.zhsrc or '初中' in zh.zhdes))[:]
+        if zh_datas and has_local(zh_datas):
+            studs = select(s for s in GradeY18 if s.name==stud_name and s.localzh==None)[:]
+            need_person_checks.append((studs,zh_datas))
+    stud_datas = []
+    zh_datas = []
+    for studs,zhs in need_person_checks:
+        for stud in studs:
+            stud_datas.append(list(stud.to_dict().values()))
+        for zh in zhs:
+            zh_datas.append(list(zh.to_dict().values()))
+    save_datas_xlsx('待核查县内转学生名单.xlsx',stud_datas)
+    save_datas_xlsx('待核查县内转学数据.xlsx',zh_datas)
 
 
 
@@ -223,12 +225,11 @@ def get_sch_data_xls():
 if __name__ == '__main__':
     db.bind(**DB_PARAMS)
     db.generate_mapping(create_tables=True)
-    # enter_csv()
+
     get_reg_data()
-    # check_regdata_name_sch()
-    # get_sch_data()
-    # get_out_local()
-    # get_out_local_by_name()
-    # get_localzh_or_not()
-    # check_localzh_name_sch()
-    get_sch_data_xls()
+    check_regdata_name_sch()
+    get_out_local()
+    get_out_local_by_name()
+    get_localzh_or_not()
+    check_localzh_name_sch()
+    # get_sch_data_xls()
