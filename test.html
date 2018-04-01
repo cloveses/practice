@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>mytest</title>
+    <link rel="stylesheet" type="text/css" href="">
+</head>
+<link rel="stylesheet" type="text/css" href="">
+<style type="text/css">
+    table {
+        /*transform: rotate(45deg) scale(1.2);*/
+        transform: matrix(0.86603,0.5,-0.5,0.86603,1,1);
+        transform-origin: left bottom;
+    }
+    tbody tr:nth-of-type(odd){background-color: yellow;}
+    .abc:hover {
+        background-color: green;
+    }
+</style>
+<body>
+    <table>
+        <caption>abc</caption>
+      <thead>
+        <tr>
+          <th>Month</th>
+          <th>Savings</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <td>Sum</td>
+          <td>$180</td>
+        </tr>
+      </tfoot>
+      <tbody>
+        <tr>
+          <td class="abc">January</td>
+          <td>$100</td>
+        </tr>
+        <tr>
+          <td>February</td>
+          <td>$80</td>
+        </tr>
+        <tr>
+          <td>Apil</td>
+          <td>$100</td>
+        </tr>
+        <tr>
+          <td>March</td>
+          <td>$80</td>
+        </tr>
+      </tbody>
+    </table>
+</body>
+</html>

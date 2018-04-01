@@ -1,0 +1,5 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+testid/idsd
+testid/idsd/
+blockchain/

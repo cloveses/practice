@@ -1,0 +1,521 @@
+1515052822698	geckodriver	INFO	geckodriver 0.18.0
+1515052822713	geckodriver	INFO	Listening on 127.0.0.1:50010
+1515052824620	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1515052827278	Marionette	INFO	Listening on port 50016
+1515052827861	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Child 3780] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+[Child 3780] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+[Child 2936] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+1515053071404	geckodriver	INFO	geckodriver 0.18.0
+1515053071419	geckodriver	INFO	Listening on 127.0.0.1:50109
+1515053073419	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1515053076295	Marionette	INFO	Listening on port 50115
+1515053076616	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+1515053166441	addons.productaddons	WARN	Failed downloading via XHR, status: 0, reason: error
+1515053195417	geckodriver	INFO	geckodriver 0.18.0
+1515053195433	geckodriver	INFO	Listening on 127.0.0.1:50193
+1515053197433	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1515053200055	Marionette	INFO	Listening on port 50199
+1515053200722	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+1515053294409	addons.productaddons	WARN	Failed downloading via XHR, status: 0, reason: error
+[Child 4780] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+ette	INFO	Listening on port 50261
+1515053249323	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+1515053310904	addons.productaddons	WARN	Failed downloading XML, status: 0, reason: error
+[Child 2936] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+[Child 2936] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+1515053318596	geckodriver	INFO	geckodriver 0.18.0
+1515053318611	geckodriver	INFO	Listening on 127.0.0.1:50359
+1515053320634	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1515053323469	Marionette	INFO	Listening on port 50365
+1515053323749	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+1515053413328	addons.productaddons	WARN	Failed downloading via XHR, status: 0, reason: error
+[Child 628] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+1515053600311	geckodriver	INFO	geckodriver 0.18.0
+1515053600327	geckodriver	INFO	Listening on 127.0.0.1:50498
+1515053602327	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1515053604816	Marionette	INFO	Listening on port 50504
+1515053605535	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Child 4428] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+[Child 4428] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+[Child 3584] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+[Child 3584] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+1515053713585	geckodriver	INFO	geckodriver 0.18.0
+1515053713585	geckodriver	INFO	Listening on 127.0.0.1:50605
+1515053715606	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1515053718160	Marionette	INFO	Listening on port 50611
+1515053718814	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+[Child 4092] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+1515053867835	geckodriver	INFO	geckodriver 0.18.0
+1515053867851	geckodriver	INFO	Listening on 127.0.0.1:50707
+1515053869867	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1515053872156	Marionette	INFO	Listening on port 50713
+1515053873049	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+1515053963821	addons.productaddons	WARN	Failed downloading via XHR, status: 0, reason: error
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+[Child 3124] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+[Child 3124] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+1515053998427	geckodriver	INFO	geckodriver 0.18.0
+1515053998443	geckodriver	INFO	Listening on 127.0.0.1:50836
+1515054000443	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1515054002491	Marionette	INFO	Listening on port 50842
+1515054003893	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+1515054094066	addons.productaddons	WARN	Failed downloading via XHR, status: 0, reason: error
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+[Child 5044] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+[Child 5044] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+1515054386445	geckodriver	INFO	geckodriver 0.18.0
+1515054386460	geckodriver	INFO	Listening on 127.0.0.1:51007
+1515054388476	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1515054390924	Marionette	INFO	Listening on port 51013
+1515054391754	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+1515054480890	addons.productaddons	WARN	Failed downloading via XHR, status: 0, reason: error
+1515054834833	geckodriver	INFO	geckodriver 0.18.0
+1515054834848	geckodriver	INFO	Listening on 127.0.0.1:51170
+1515054836848	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1515054839001	Marionette	INFO	Listening on port 51176
+1515054840354	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 106: TypeError: this._recipeManager is null
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 106: TypeError: this._recipeManager is null
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 106: TypeError: this._recipeManager is null
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 106: TypeError: this._recipeManager is null
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+[Child 4964] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+[Child 4964] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+1515487205932	geckodriver	INFO	geckodriver 0.18.0
+1515487205963	geckodriver	INFO	Listening on 127.0.0.1:52161
+1515487208026	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1515487211104	Marionette	INFO	Listening on port 52167
+1515487211297	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+1515487300603	addons.productaddons	WARN	Failed downloading via XHR, status: 0, reason: error
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+1515551059719	geckodriver	INFO	geckodriver 0.18.0
+1515551059735	geckodriver	INFO	Listening on 127.0.0.1:54749
+1515551061704	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1515551064584	Marionette	INFO	Listening on port 54755
+1515551064894	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+1515551155497	addons.productaddons	WARN	Failed downloading via XHR, status: 0, reason: error
+1515566139685	geckodriver	INFO	geckodriver 0.18.0
+1515566139701	geckodriver	INFO	Listening on 127.0.0.1:49315
+1515566141451	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1515566143568	Marionette	INFO	Listening on port 49322
+1515566145539	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+1515566232715	addons.productaddons	WARN	Failed downloading via XHR, status: 0, reason: error
+JavaScript error: http://zhszpj.ahedu.cn/sgees/mgr/userMgr/userList/index, line 202: TypeError: jsonarr[i].role is undefined
+JavaScript error: http://zhszpj.ahedu.cn/sgees/mgr/userMgr/userList/index, line 202: TypeError: jsonarr[i].role is undefined
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+[Child 3016] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+1515566614737	geckodriver	INFO	geckodriver 0.18.0
+1515566614752	geckodriver	INFO	Listening on 127.0.0.1:49562
+1515566616737	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1515566619329	Marionette	INFO	Listening on port 49568
+1515566620008	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+1515566705046	addons.productaddons	WARN	Failed downloading via XHR, status: 0, reason: error
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+JavaScript warning: http://www.ahedu.cn/search/Public/_static/js/jquery-1.9.1.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: http://www.ahedu.cn/search/Public/_static/js/jquery-1.9.1.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+1515630154306	geckodriver	INFO	geckodriver 0.18.0
+1515630154322	geckodriver	INFO	Listening on 127.0.0.1:49371
+1515630156166	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1515630159408	Marionette	INFO	Listening on port 49377
+1515630159847	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+1515630250733	addons.productaddons	WARN	Failed downloading via XHR, status: 0, reason: error
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+[Child 1688] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+1515632518140	geckodriver	INFO	geckodriver 0.18.0
+1515632518156	geckodriver	INFO	Listening on 127.0.0.1:49744
+1515632520156	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1515632522727	Marionette	INFO	Listening on port 49750
+1515632523361	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Child 3464] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+[Child 3464] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+1515632614422	addons.productaddons	WARN	Failed downloading via XHR, status: 0, reason: error
+[Child 352] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+1515632656121	geckodriver	INFO	geckodriver 0.18.0
+1515632656136	geckodriver	INFO	Listening on 127.0.0.1:49853
+1515632658121	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1515632660780	Marionette	INFO	Listening on port 49859
+1515632661420	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Child 2928] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+[Child 2928] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+1515632743772	addons.productaddons	WARN	Failed downloading via XHR, status: 0, reason: error
+1515633604884	geckodriver	INFO	geckodriver 0.18.0
+1515633604900	geckodriver	INFO	Listening on 127.0.0.1:50110
+1515633606900	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1515633609098	Marionette	INFO	Listening on port 50117
+1515633610450	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+JavaScript error: http://www.ahedu.cn/SNS/apps/adminspace/_static/js/echarts/echarts-map-min.js, line 8: SyntaxError: missing } in compound statement
+1515634290411	geckodriver	INFO	geckodriver 0.18.0
+1515634290426	geckodriver	INFO	Listening on 127.0.0.1:50477
+1515634292438	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1515634295046	Marionette	INFO	Listening on port 50483
+1515634295672	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+1515636036353	geckodriver	INFO	geckodriver 0.18.0
+1515636036369	geckodriver	INFO	Listening on 127.0.0.1:51190
+1515636038369	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1515636040749	Marionette	INFO	Listening on port 51197
+1515636041622	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Child 2884] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+[Child 2884] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+[Child 3036] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+[Child 3036] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+1515637583820	geckodriver	INFO	geckodriver 0.18.0
+1515637583835	geckodriver	INFO	Listening on 127.0.0.1:54638
+1515637585898	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1515637588297	Marionette	INFO	Listening on port 54644
+1515637589161	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+[Child 3612] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+1515637622386	geckodriver	INFO	geckodriver 0.18.0
+1515637622402	geckodriver	INFO	Listening on 127.0.0.1:54707
+1515637624417	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1515637626718	Marionette	INFO	Listening on port 54714
+1515637627592	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+[Child 2196] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+[Child 2196] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+1515637697938	geckodriver	INFO	geckodriver 0.18.0
+1515637697954	geckodriver	INFO	Listening on 127.0.0.1:54775
+1515637699969	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1515637702578	Marionette	INFO	Listening on port 54781
+1515637703230	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+1515637760151	geckodriver	INFO	geckodriver 0.18.0
+1515637760151	geckodriver	INFO	Listening on 127.0.0.1:54836
+1515637762166	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1515637764978	Marionette	INFO	Listening on port 54842
+1515637765376	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+[Child 4028] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+[Child 4028] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+1515637855737	geckodriver	INFO	geckodriver 0.18.0
+1515637855737	geckodriver	INFO	Listening on 127.0.0.1:54910
+1515637857752	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1515637860137	Marionette	INFO	Listening on port 54916
+1515637860941	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+[Child 4064] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+[Child 4064] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+1515637878962	geckodriver::marionette	ERROR	Failed to kill browser process
+1515641309506	geckodriver	INFO	geckodriver 0.18.0
+1515641309522	geckodriver	INFO	Listening on 127.0.0.1:55629
+1515641311538	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1515641313921	Marionette	INFO	Listening on port 55636
+1515641314710	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+JavaScript error: http://www.ahedu.cn/SNS/addons/theme/stv1/_static/js/js.php?t=js&f=jquery-1.7.1.min.js,jquery.form.js,common.js,core.js,module.js,module.common.js,jwidget_1.0.0.js,jquery.atwho.js,jquery.caret.js,ui.core.js,ui.draggable.js&v=20130523.js, line 3193: TypeError: core.facecard is undefined
+1515641545562	geckodriver	INFO	geckodriver 0.18.0
+1515641545578	geckodriver	INFO	Listening on 127.0.0.1:55729
+1515641547578	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1515641549615	Marionette	INFO	Listening on port 55735
+1515641551114	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+1515718073416	geckodriver	INFO	geckodriver 0.18.0
+1515718073431	geckodriver	INFO	Listening on 127.0.0.1:49567
+1515718075291	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1515718077284	Marionette	INFO	Listening on port 49573
+1515718077486	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Child 3656] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+[Child 3656] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 106: TypeError: this._recipeManager is null
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 106: TypeError: this._recipeManager is null
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+[Child 2924] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+[Child 2924] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+1515747633128	geckodriver	INFO	geckodriver 0.18.0
+1515747633144	geckodriver	INFO	Listening on 127.0.0.1:51204
+1515747635003	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1515747637767	Marionette	INFO	Listening on port 51210
+1515747638213	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Child 2604] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+[Child 2604] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+1515980828137	geckodriver	INFO	geckodriver 0.18.0
+1515980828169	geckodriver	INFO	Listening on 127.0.0.1:50704
+1515980830059	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1515980832136	Marionette	INFO	Listening on port 50710
+1515980833628	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+[Child 4076] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+[Child 4076] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+1515981327156	geckodriver	INFO	geckodriver 0.18.0
+1515981327172	geckodriver	INFO	Listening on 127.0.0.1:51893
+1515981329187	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1515981331544	Marionette	INFO	Listening on port 51899
+1515981332389	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Child 4148] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+[Child 4148] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+1515981421243	addons.productaddons	WARN	Failed downloading via XHR, status: 0, reason: error
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+[Child 4412] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+[Child 4412] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+1516005986285	geckodriver	INFO	geckodriver 0.18.0
+1516005986300	geckodriver	INFO	Listening on 127.0.0.1:49421
+1516005988207	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1516005990931	Marionette	INFO	Listening on port 49428
+1516005991403	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+1516006080475	addons.productaddons	WARN	Failed downloading via XHR, status: 0, reason: error
+[Child 3040] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+1516006183320	geckodriver	INFO	geckodriver 0.18.0
+1516006183335	geckodriver	INFO	Listening on 127.0.0.1:49537
+1516006185320	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1516006187675	Marionette	INFO	Listening on port 49544
+1516006188506	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+1516006277320	addons.productaddons	WARN	Failed downloading via XHR, status: 0, reason: error
+[Child 2892] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+[Child 2892] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+1516006401251	geckodriver	INFO	geckodriver 0.18.0
+1516006401267	geckodriver	INFO	Listening on 127.0.0.1:49645
+1516006403283	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1516006405532	Marionette	INFO	Listening on port 49651
+1516006406503	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Child 3668] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+[Child 3668] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+1516006497285	addons.productaddons	WARN	Failed downloading via XHR, status: 0, reason: error
+JavaScript warning: http://zhszpj.ahedu.cn/sgees/static/js/jquery-1.9.1.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: http://zhszpj.ahedu.cn/sgees/static/js/jquery-1.9.1.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+JavaScript error: javascript:void(), line 1: SyntaxError: expected expression, got ')'
+JavaScript warning: http://zhszpj.ahedu.cn/sgees/static/js/jquery-1.9.1.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: http://zhszpj.ahedu.cn/sgees/static/js/jquery-1.9.1.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript error: http://zhszpj.ahedu.cn/sgees/mgr/userMgr/userList/index, line 202: TypeError: jsonarr[i].role is undefined
+JavaScript warning: http://zhszpj.ahedu.cn/sgees/static/js/jquery-1.9.1.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: http://zhszpj.ahedu.cn/sgees/static/js/jquery-1.9.1.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+[Child 2884] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+1516090870873	geckodriver	INFO	geckodriver 0.18.0
+1516090870888	geckodriver	INFO	Listening on 127.0.0.1:51732
+1516090872529	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1516090874912	Marionette	INFO	Listening on port 51744
+1516090875752	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+[Child 5136] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+[Child 5136] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+1516091813560	geckodriver	INFO	geckodriver 0.18.0
+1516091813576	geckodriver	INFO	Listening on 127.0.0.1:55554
+1516091815591	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1516091817921	Marionette	INFO	Listening on port 55562
+1516091818741	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+[Child 5112] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+[Child 5112] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+1516752341507	geckodriver	INFO	geckodriver 0.18.0
+1516752341554	geckodriver	INFO	Listening on 127.0.0.1:49282
+1516752343695	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1516752349259	Marionette	INFO	Listening on port 49290
+1516752349783	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+JavaScript warning: http://zhszpj.ahedu.cn/sgees/static/js/jquery-1.9.1.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: http://zhszpj.ahedu.cn/sgees/static/js/jquery-1.9.1.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+JavaScript error: http://zhszpj.ahedu.cn/sgees/mgr/userMgr/userList/index, line 202: TypeError: jsonarr[i].role is undefined
+JavaScript warning: http://zhszpj.ahedu.cn/sgees/static/js/jquery-1.9.1.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: http://zhszpj.ahedu.cn/sgees/static/js/jquery-1.9.1.min.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+1517191848602	geckodriver	INFO	geckodriver 0.18.0
+1517191848634	geckodriver	INFO	Listening on 127.0.0.1:49871
+1517191850602	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1517191853506	Marionette	INFO	Listening on port 49877
+1517191853786	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+[Child 2248] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+[Child 2248] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+1518307526282	geckodriver	INFO	geckodriver 0.18.0
+1518307526360	geckodriver	INFO	Listening on 127.0.0.1:49257
+1518307528454	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1518307533594	Marionette	INFO	Listening on port 49263
+1518307533970	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+JavaScript warning: http://chaoshi.org/template/skins/default/js/common.js, line 29: unreachable code after return statement
+JavaScript warning: http://chaoshi.org/template/skins/default/js/common.js, line 29: unreachable code after return statement
+JavaScript error: http://chaoshi.org/template/skins/default/js/common.js, line 38: TypeError: $(...).live is not a function
+JavaScript error: http://bdimg.share.baidu.com/static/api/js/trans/logger.js?v=d16ec0e3.js, line 1: TypeError: n.ajax.request is not a function
+JavaScript warning: http://chaoshi.org/template/skins/default/js/common.js, line 29: unreachable code after return statement
+JavaScript error: http://chaoshi.org/template/skins/default/js/common.js, line 38: TypeError: $(...).live is not a function
+JavaScript warning: http://chaoshi.org/template/skins/default/js/common.js, line 29: unreachable code after return statement
+JavaScript warning: http://chaoshi.org/template/skins/default/js/common.js, line 29: unreachable code after return statement
+JavaScript warning: http://chaoshi.org/template/skins/default/js/common.js, line 29: unreachable code after return statement
+JavaScript error: http://www.ahedu.cn/SNS/index.php?app=public&mod=Index&act=index, line 1826: ReferenceError: ab is not defined
+JavaScript error: http://www.ahedu.cn/SNS/index.php?app=public&mod=Index&act=index, line 1826: ReferenceError: ab is not defined
+JavaScript error: https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/plugins/every_cookie_4644b13.js, line 4: ReferenceError: c is not defined
+JavaScript warning: http://img.gaodun.cn/js/jquery-1.9.0.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: http://www.cicpa.org.cn/images/jquery-1.3.2.min.js, line 19: unreachable code after return statement
+JavaScript error: http://www.cicpa.org.cn/, line 2621: SyntaxError: missing ; before statement
+JavaScript warning: https://pos.baidu.com/hcjm?conwid=250&conhei=250&rdid=1997633&dc=3&di=u1997633&dri=0&dis=0&dai=1&ps=0x0&coa=wn%3D2%26hn%3D8&enu=encoding&dcb=___adblockplus&dtm=HTML_POST&dvi=0.0&dci=-1&dpt=none&tsr=0&tpr=1518313586138&ti=%E6%B3%A8%E5%86%8C%E4%BC%9A%E8%AE%A1%E5%B8%88%E8%80%83%E8%AF%95_%E7%99%BE%E5%BA%A6%E7%99%BE%E7%A7%91&ari=2&dbv=0&drs=3&pcs=1007x650&pss=1189x30533&cfv=0&cpl=0&chi=1&cce=true&cec=UTF-8&tlm=1518313586&prot=2&rw=667&ltu=https%3A%2F%2Fbaike.baidu.com%2Fitem%2F%25E6%25B3%25A8%25E5%2586%258C%25E4%25BC%259A%25E8%25AE%25A1%25E5%25B8%2588%25E8%2580%2583%25E8%25AF%2595%2F2391408&ltr=https%3A%2F%2Fwww.baidu.com%2Flink%3Furl%3DOL4rA06VCGuX2Y-JFHDf8yWG8bFIoCtT1f5GI3nEGDPZVcERKg_wK2ISgIIDvrSW0sDTGhwZC6K13N5OGsDZimEzYJuKbe6sKOKKl6xCq0kxOqUCiovtj3yLpwxaHL2tbfuN72xVpWr3B8NKKaKA4_%26wd%3D%26eqid%3Deb4703640003bd0f000000045a7f9f94&ecd=1&uc=1024x738&pis=-1x-1&sr=1024x768&tcn=1518313586&qn=fa5c88a4cdceffa8&tt=1518313586086.58.210.214, line 119: unreachable code after return statement
+JavaScript warning: https://pos.baidu.com/hcjm?conwid=250&conhei=250&rdid=1997633&dc=3&di=u1997633&dri=0&dis=0&dai=1&ps=0x0&coa=wn%3D2%26hn%3D8&enu=encoding&dcb=___adblockplus&dtm=HTML_POST&dvi=0.0&dci=-1&dpt=none&tsr=0&tpr=1518313586138&ti=%E6%B3%A8%E5%86%8C%E4%BC%9A%E8%AE%A1%E5%B8%88%E8%80%83%E8%AF%95_%E7%99%BE%E5%BA%A6%E7%99%BE%E7%A7%91&ari=2&dbv=0&drs=3&pcs=1007x650&pss=1189x30533&cfv=0&cpl=0&chi=1&cce=true&cec=UTF-8&tlm=1518313586&prot=2&rw=667&ltu=https%3A%2F%2Fbaike.baidu.com%2Fitem%2F%25E6%25B3%25A8%25E5%2586%258C%25E4%25BC%259A%25E8%25AE%25A1%25E5%25B8%2588%25E8%2580%2583%25E8%25AF%2595%2F2391408&ltr=https%3A%2F%2Fwww.baidu.com%2Flink%3Furl%3DOL4rA06VCGuX2Y-JFHDf8yWG8bFIoCtT1f5GI3nEGDPZVcERKg_wK2ISgIIDvrSW0sDTGhwZC6K13N5OGsDZimEzYJuKbe6sKOKKl6xCq0kxOqUCiovtj3yLpwxaHL2tbfuN72xVpWr3B8NKKaKA4_%26wd%3D%26eqid%3Deb4703640003bd0f000000045a7f9f94&ecd=1&uc=1024x738&pis=-1x-1&sr=1024x768&tcn=1518313586&qn=fa5c88a4cdceffa8&tt=1518313586086.58.210.214, line 119: unreachable code after return statement
+JavaScript warning: https://pic.gaodun.com/js/jquery-1.9.0.js, line 1: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://pos.baidu.com/fcsm?conwid=250&conhei=250&mpdi=227509&rtbid=1972219&rdid=9223372032564532863&dc=2&di=968278&dri=0&dis=0&dai=0&ps=846x733&enu=encoding&dcb=___adblockplus&dtm=HTML_POST&dvi=0.0&dci=-1&dpt=none&tsr=0&tpr=1518313851183&cop=zdclassid%3D946%26zhidaoqid%3D276396006&ti=%E4%BC%9A%E8%AE%A1%E5%B8%88%E4%B8%8E%E6%B3%A8%E5%86%8C%E4%BC%9A%E8%AE%A1%E5%B8%88%E7%9A%84%E5%8C%BA%E5%88%AB_%E7%99%BE%E5%BA%A6%E7%9F%A5%E9%81%93&ari=2&dbv=0&drs=3&pcs=1007x650&pss=1014x3433&cfv=0&cpl=0&chi=1&cce=true&cec=gbk&tlm=1518313852&prot=2&rw=667&ltu=https%3A%2F%2Fzhidao.baidu.com%2Fquestion%2F276396006.html&ltr=https%3A%2F%2Fwww.baidu.com%2Flink%3Furl%3DiRznSzRDmhK8reoQrModfBNqBt3JRMU1kjiB4cF8uWSANhrYLQmSRq7-xnRxXImhHdj_Xv3uyVjGJ5Q0icilcq%26wd%3D%26eqid%3Dfc2515490003c0d6000000045a7fa15f&ecd=1&uc=1024x738&pis=-1x-1&sr=1024x768&tcn=1518313852&qn=1388a976b3165b54&dpv=1388a976b3165b54&tt=1518313851013.1338.1407.1408, line 84: unreachable code after return statement
+JavaScript warning: https://pos.baidu.com/fcsm?conwid=250&conhei=250&mpdi=227509&rtbid=1972219&rdid=9223372032564532863&dc=2&di=968278&dri=0&dis=0&dai=0&ps=846x733&enu=encoding&dcb=___adblockplus&dtm=HTML_POST&dvi=0.0&dci=-1&dpt=none&tsr=0&tpr=1518313851183&cop=zdclassid%3D946%26zhidaoqid%3D276396006&ti=%E4%BC%9A%E8%AE%A1%E5%B8%88%E4%B8%8E%E6%B3%A8%E5%86%8C%E4%BC%9A%E8%AE%A1%E5%B8%88%E7%9A%84%E5%8C%BA%E5%88%AB_%E7%99%BE%E5%BA%A6%E7%9F%A5%E9%81%93&ari=2&dbv=0&drs=3&pcs=1007x650&pss=1014x3433&cfv=0&cpl=0&chi=1&cce=true&cec=gbk&tlm=1518313852&prot=2&rw=667&ltu=https%3A%2F%2Fzhidao.baidu.com%2Fquestion%2F276396006.html&ltr=https%3A%2F%2Fwww.baidu.com%2Flink%3Furl%3DiRznSzRDmhK8reoQrModfBNqBt3JRMU1kjiB4cF8uWSANhrYLQmSRq7-xnRxXImhHdj_Xv3uyVjGJ5Q0icilcq%26wd%3D%26eqid%3Dfc2515490003c0d6000000045a7fa15f&ecd=1&uc=1024x738&pis=-1x-1&sr=1024x768&tcn=1518313852&qn=1388a976b3165b54&dpv=1388a976b3165b54&tt=1518313851013.1338.1407.1408, line 84: unreachable code after return statement
+JavaScript warning: https://pos.baidu.com/tcqm?conwid=250&conhei=250&mpdi=227509&rtbid=1972219&rdid=9223372032564532863&dc=2&di=968278&dri=0&dis=0&dai=0&ps=706x733&enu=encoding&dcb=___adblockplus&dtm=HTML_POST&dvi=0.0&dci=-1&dpt=none&tsr=0&tpr=1518314013858&cop=zdclassid%3D184%26zhidaoqid%3D123251832&ti=%E6%B3%A8%E5%86%8C%E4%BC%9A%E8%AE%A1%E5%B8%88%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E5%B1%9E%E4%BA%8E%E4%BC%9A%E8%AE%A1%E4%B8%93%E4%B8%9A%E8%81%8C%E5%8A%A1%20%E6%B3%A8%E5%86%8C%E4%BC%9A%E8%AE%A1%E5%B8%88%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E5%B1%9E%E4%BA%8E%E4%BC%9A%E8%AE%A1%E4%B8%93%E4%B8%9A%E8%81%8C%E5%8A%A1_%E7%99%BE%E5%BA%A6%E7%9F%A5%E9%81%93&ari=2&dbv=0&drs=3&pcs=1007x650&pss=1014x2946&cfv=0&cpl=0&chi=1&cce=true&cec=gbk&tlm=1518314014&prot=2&rw=667&ltu=https%3A%2F%2Fzhidao.baidu.com%2Fquestion%2F123251832.html&ltr=https%3A%2F%2Fwww.baidu.com%2Flink%3Furl%3DwdOoYMhu-jluEbrxETODgcAjFps22tOK_hfTzapr4HYzgzao4vCFom_Zdma5C-sA7wwdwoqizN1VWK1U4jKKd_%26wd%3D%26eqid%3Dfc2515490003c0d6000000045a7fa15f&ecd=1&uc=1024x738&pis=-1x-1&sr=1024x768&tcn=1518314015&qn=0b5125b3f0409f4a&dpv=0b5125b3f0409f4a&tt=1518314013713.1155.1599.1604, line 84: unreachable code after return statement
+JavaScript warning: https://pos.baidu.com/tcqm?conwid=250&conhei=250&mpdi=227509&rtbid=1972219&rdid=9223372032564532863&dc=2&di=968278&dri=0&dis=0&dai=0&ps=706x733&enu=encoding&dcb=___adblockplus&dtm=HTML_POST&dvi=0.0&dci=-1&dpt=none&tsr=0&tpr=1518314013858&cop=zdclassid%3D184%26zhidaoqid%3D123251832&ti=%E6%B3%A8%E5%86%8C%E4%BC%9A%E8%AE%A1%E5%B8%88%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E5%B1%9E%E4%BA%8E%E4%BC%9A%E8%AE%A1%E4%B8%93%E4%B8%9A%E8%81%8C%E5%8A%A1%20%E6%B3%A8%E5%86%8C%E4%BC%9A%E8%AE%A1%E5%B8%88%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E5%B1%9E%E4%BA%8E%E4%BC%9A%E8%AE%A1%E4%B8%93%E4%B8%9A%E8%81%8C%E5%8A%A1_%E7%99%BE%E5%BA%A6%E7%9F%A5%E9%81%93&ari=2&dbv=0&drs=3&pcs=1007x650&pss=1014x2946&cfv=0&cpl=0&chi=1&cce=true&cec=gbk&tlm=1518314014&prot=2&rw=667&ltu=https%3A%2F%2Fzhidao.baidu.com%2Fquestion%2F123251832.html&ltr=https%3A%2F%2Fwww.baidu.com%2Flink%3Furl%3DwdOoYMhu-jluEbrxETODgcAjFps22tOK_hfTzapr4HYzgzao4vCFom_Zdma5C-sA7wwdwoqizN1VWK1U4jKKd_%26wd%3D%26eqid%3Dfc2515490003c0d6000000045a7fa15f&ecd=1&uc=1024x738&pis=-1x-1&sr=1024x768&tcn=1518314015&qn=0b5125b3f0409f4a&dpv=0b5125b3f0409f4a&tt=1518314013713.1155.1599.1604, line 84: unreachable code after return statement
+JavaScript warning: https://pos.baidu.com/acpm?conwid=250&conhei=250&mpdi=227509&rtbid=1972219&rdid=9223372032564532863&dc=2&di=968278&dri=0&dis=0&dai=0&ps=646x733&enu=encoding&dcb=___adblockplus&dtm=HTML_POST&dvi=0.0&dci=-1&dpt=none&tsr=0&tpr=1518314145854&cop=zdclassid%3D184%26zhidaoqid%3D437412417%26zdquery%3D%25E5%25AE%25A1%25E8%25AE%25A1%25E5%2586%2585%25E5%25AE%25B9&ti=%E5%AE%A1%E8%AE%A1%E7%9A%84%E4%B8%BB%E8%A6%81%E5%86%85%E5%AE%B9%E6%98%AF%E6%8C%87%E4%BB%80%E4%B9%88_%E7%99%BE%E5%BA%A6%E7%9F%A5%E9%81%93&ari=2&dbv=0&drs=3&pcs=1007x650&pss=1014x3924&cfv=0&cpl=0&chi=1&cce=true&cec=gbk&tlm=1518314146&prot=2&rw=667&ltu=https%3A%2F%2Fzhidao.baidu.com%2Fquestion%2F437412417.html&ltr=https%3A%2F%2Fwww.baidu.com%2Flink%3Furl%3DBZsOR30M5IQREcTlckU98wLThzTAK86oSjhtiQUVOqiePZcevd9Wo2_DaDaXjSh2XMlluBcLY6qjHp4ALuBueq%26wd%3D%26eqid%3Dec4489ca0003b814000000045a7fa298&ecd=1&uc=1024x738&pis=-1x-1&sr=1024x768&tcn=1518314147&qn=ba85c3f267f7655b&dpv=ba85c3f267f7655b&tt=1518314145705.1227.1273.1274, line 84: unreachable code after return statement
+JavaScript warning: https://pos.baidu.com/acpm?conwid=250&conhei=250&mpdi=227509&rtbid=1972219&rdid=9223372032564532863&dc=2&di=968278&dri=0&dis=0&dai=0&ps=646x733&enu=encoding&dcb=___adblockplus&dtm=HTML_POST&dvi=0.0&dci=-1&dpt=none&tsr=0&tpr=1518314145854&cop=zdclassid%3D184%26zhidaoqid%3D437412417%26zdquery%3D%25E5%25AE%25A1%25E8%25AE%25A1%25E5%2586%2585%25E5%25AE%25B9&ti=%E5%AE%A1%E8%AE%A1%E7%9A%84%E4%B8%BB%E8%A6%81%E5%86%85%E5%AE%B9%E6%98%AF%E6%8C%87%E4%BB%80%E4%B9%88_%E7%99%BE%E5%BA%A6%E7%9F%A5%E9%81%93&ari=2&dbv=0&drs=3&pcs=1007x650&pss=1014x3924&cfv=0&cpl=0&chi=1&cce=true&cec=gbk&tlm=1518314146&prot=2&rw=667&ltu=https%3A%2F%2Fzhidao.baidu.com%2Fquestion%2F437412417.html&ltr=https%3A%2F%2Fwww.baidu.com%2Flink%3Furl%3DBZsOR30M5IQREcTlckU98wLThzTAK86oSjhtiQUVOqiePZcevd9Wo2_DaDaXjSh2XMlluBcLY6qjHp4ALuBueq%26wd%3D%26eqid%3Dec4489ca0003b814000000045a7fa298&ecd=1&uc=1024x738&pis=-1x-1&sr=1024x768&tcn=1518314147&qn=ba85c3f267f7655b&dpv=ba85c3f267f7655b&tt=1518314145705.1227.1273.1274, line 84: unreachable code after return statement
+JavaScript error: https://gss0.baidu.com/9rA4cT8aBw9FktbgoI7O1ygwehsv/static/api/js/trans/logger.js?v=d16ec0e3.js, line 1: TypeError: n.ajax.request is not a function
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 106: TypeError: this._recipeManager is null
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 106: TypeError: this._recipeManager is null
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 106: TypeError: this._recipeManager is null
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 106: TypeError: this._recipeManager is null
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 106: TypeError: this._recipeManager is null
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 106: TypeError: this._recipeManager is null
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 106: TypeError: this._recipeManager is null
+JavaScript error: resource://gre/modules/PrivateBrowsingUtils.jsm, line 48: TypeError: aWindow is null
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 106: TypeError: this._recipeManager is null
+1519716052082	geckodriver	INFO	geckodriver 0.18.0
+1519716052144	geckodriver	INFO	Listening on 127.0.0.1:50291
+1519716054128	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1519716056658	Marionette	INFO	Listening on port 50298
+1519716057301	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+[Child 4696] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+1520565508138	geckodriver	INFO	geckodriver 0.18.0
+1520565508185	geckodriver	INFO	Listening on 127.0.0.1:49275
+1520565510341	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1520565515227	Marionette	INFO	Listening on port 49281
+1520565515895	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+1520565585548	addons.productaddons	WARN	Failed downloading via XHR, status: 0, reason: error
+[Child 4024] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+[Child 4024] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-esr52-w64-000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 345
+1520565602143	geckodriver	INFO	geckodriver 0.18.0
+1520565602159	geckodriver	INFO	Listening on 127.0.0.1:49385
+1520565604065	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1520565607183	Marionette	INFO	Listening on port 49392
+1520565607588	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+1520818550737	geckodriver	INFO	geckodriver 0.18.0
+1520818550753	geckodriver	INFO	Listening on 127.0.0.1:50172
+1520818552706	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1520818555423	Marionette	INFO	Listening on port 50178
+1520818556108	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: http://www.ahedu.cn/EduResource/addons/theme/stv_resource/_static/js/jiami.js, line 50: unreachable code after return statement
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
