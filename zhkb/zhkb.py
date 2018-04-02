@@ -100,7 +100,8 @@ def has_local(zh_data):
 @db_session
 def clear_studzhall():
     for zh_stud in select(s for s in StudZhAll):
-        if not ((zh_stud.zhsrc and '初中' in zh_stud.zhsrc) or (zh_stud.zhdes and '初中' in zh_stud.zhdes)):
+        if not ((zh_stud.zhsrc and '初中' in zh_stud.zhsrc) 
+            or (zh_stud.zhdes and '初中' in zh_stud.zhdes)):
             zh_stud.delete()
 
 @db_session
@@ -113,8 +114,10 @@ def clear_keyinfo():
 def insert_oidcode():
     for keyinfo in select(s for s in KeyInfoChg):
         if keyinfo.oidcode and keyinfo.oidcode != keyinfo.idcode:
-            if count(select(s for s in GradeY18 if s.idcode == keyinfo.idcode)) == 1:
-                stud = select(s for s in GradeY18 if s.idcode == keyinfo.idcode).first()
+            if count(select(s for s in GradeY18 \
+                if s.idcode == keyinfo.idcode)) == 1:
+                stud = select(s for s in GradeY18 \
+                    if s.idcode == keyinfo.idcode).first()
                 stud.oidcode = keyinfo.oidcode
 
 @db_session
