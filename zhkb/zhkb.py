@@ -86,14 +86,14 @@ def is_out(zh_data):
     out_flags = ('市内转','跨市转','跨省转','跨境转')
     for zh in zh_data:
         for out_flag in out_flags:
-            if zh.zhtype.startswith(out_flag):
+            if zh.zhtype and zh.zhtype.startswith(out_flag):
                 return True
 
 def has_local(zh_data):
     """判别是否有县内转学记录"""
     zh_data = [zh.zhtype for zh in zh_data]
     for zh in zh_data:
-        if zh.startswith('县区内转'):
+        if zh.zhtype and zh.startswith('县区内转'):
             return True
 
 # 清除小学和高中学籍变动
@@ -109,7 +109,7 @@ def clear_studzhall():
 @db_session
 def clear_keyinfo():
     for keyinfo in select(s for s in KeyInfoChg):
-        if '小学' in keyinfo.sclass:
+        if '小学' in keyinfo.grade:
             keyinfo.delete()
 
 @db_session
@@ -121,24 +121,51 @@ def insert_oidcode():
                 stud.oidcode = keyinfo.oidcode
 
 @db_session
-def test():
+def set_zh_from_out():
     for stud in select(s for s in GradeY18):
-        zh_recos = select(zh for zh in StudZhAll if zh.gsrid == stud.gsrid)
-        for zh_reco in zh_recos:
-            if stud.dsrid != zh_reco.dsrid:
-                print('地区学号不同:')
-                print(stud.name,stud.sch,stud.idcode,stud.dsrid)
-                print(zh_reco.name,zh_reco.sch,zh_reco.idcode,zh_reco.dsrid)
+        zh_recos = []
+        if stud.idcode:
+            zhs = select(zh for zh in StudZhAll 
+                if zh.idcode == stud.idcode)[:]
+            if zhs:
+                zh_recos.extend(zhs)
+            if stud.oidcode:
+                zhs = select(zh for zh in StudZhAll
+                    if zh.idcode == stud.oidcode)[:]
+                if zhs:
+                    zh_recos.extend(zhs)
+        else:
+            print(stud.name,stud.sch,'No id number!')
+
+        zhs = select(zh for zh in StudZhAll 
+            if zh.gsrid == stud.gsrid)[:]
+        if zhs:
+            zh_recos.extend(zhs)
+
+        zh_recos = set(zh_recos)
+        if zh_recos and is_out(zh_recos):
+            stud.outzh = 1
 
 
-@db_session
-def test2():
-    for keyinfo in select(s for s in KeyInfoChg):
-        studs = select(s for s in GradeY18 if s.ssrid == keyinfo.ssrid)
-        for stud in studs:
-            if stud.idcode != keyinfo.idcode:
-                print(stud.name,stud.sch,stud.ssrid,stud.idcode)
-                print(keyinfo.name,keyinfo.sch,keyinfo.ssrid,keyinfo.idcode)
+# @db_session
+# def test():
+#     for stud in select(s for s in GradeY18):
+#         zh_recos = select(zh for zh in StudZhAll if zh.gsrid == stud.gsrid)
+#         for zh_reco in zh_recos:
+#             if stud.dsrid != zh_reco.dsrid:
+#                 print('地区学号不同:')
+#                 print(stud.name,stud.sch,stud.idcode,stud.dsrid)
+#                 print(zh_reco.name,zh_reco.sch,zh_reco.idcode,zh_reco.dsrid)
+
+
+# @db_session
+# def test2():
+#     for keyinfo in select(s for s in KeyInfoChg):
+#         studs = select(s for s in GradeY18 if s.idcode == keyinfo.idcode)
+#         for stud in studs:
+#             if stud.ssrid != keyinfo.ssrid:
+#                 print(stud.name,stud.sch,stud.ssrid,stud.idcode)
+#                 print(keyinfo.name,keyinfo.sch,keyinfo.ssrid,keyinfo.idcode)
 
 
 # # 依据身份证号分拣出跨省市县转学
@@ -255,16 +282,16 @@ def test2():
 # 将数据导出为excel
 @db_session
 def get_sch_data_xls():
-    schs = select(s.sch for s in GradeY18)
+    # schs = select(s.sch for s in GradeY18)
 
-    # 导出各校无从县外转入的应届生（从各校报名）,每学校一个文件
-    for sch in schs:
-        datas = [['学校','年级','班级','全国学籍号','学籍号','地区学号','姓名','身份证号','性别'],]
-        query = select([s.sch,s.grade,s.sclass,s.gsrid,s.ssrid,s.dsrid,s.name,s.idcode,s.sex] 
-            for s in GradeY18 if s.sch == sch and s.outzh == None)[:]
-        datas.extend(query)
-        save_datas_xlsx('.'.join((sch,'xlsx')),datas)
-        print(count(select(s for s in GradeY18 if s.sch == sch and s.outzh == None)),sch)
+    # # 导出各校无从县外转入的应届生（从各校报名）,每学校一个文件
+    # for sch in schs:
+    #     datas = [['学校','年级','班级','全国学籍号','学籍号','地区学号','姓名','身份证号','性别'],]
+    #     query = select([s.sch,s.grade,s.sclass,s.gsrid,s.ssrid,s.dsrid,s.name,s.idcode,s.sex] 
+    #         for s in GradeY18 if s.sch == sch and s.outzh == None)[:]
+    #     datas.extend(query)
+    #     save_datas_xlsx('.'.join((sch,'xlsx')),datas)
+    #     print(count(select(s for s in GradeY18 if s.sch == sch and s.outzh == None)),sch)
 
     # 导出所有学校有县外转入记录的应届生（从招办报名）
     datas = [['学校','年级','班级','全国学籍号','学籍号','地区学号','姓名','身份证号','性别'],]
@@ -274,20 +301,23 @@ def get_sch_data_xls():
     save_datas_xlsx('.'.join(('招办报名名单','xlsx')),datas)
     print('招办报名人数：',count(select(s for s in GradeY18 if s.outzh != None)))
 
-    # 导出从各校报名的总名单
-    datas = [['学校','年级','班级','全国学籍号','学籍号','地区学号','姓名','身份证号','性别'],]
-    query = select(s for s in GradeY18 if s.outzh == None).order_by(GradeY18.sch)
-    for s in query:
-        datas.append([s.sch,s.grade,s.sclass,s.gsrid,s.ssrid,s.dsrid,s.name,s.idcode,s.sex])
-    save_datas_xlsx('.'.join(('各校报名总名单','xlsx')),datas)
-    print('各校报名总人数：',count(select(s for s in GradeY18 if s.outzh == None)))
+    # # 导出从各校报名的总名单
+    # datas = [['学校','年级','班级','全国学籍号','学籍号','地区学号','姓名','身份证号','性别'],]
+    # query = select(s for s in GradeY18 if s.outzh == None).order_by(GradeY18.sch)
+    # for s in query:
+    #     datas.append([s.sch,s.grade,s.sclass,s.gsrid,s.ssrid,s.dsrid,s.name,s.idcode,s.sex])
+    # save_datas_xlsx('.'.join(('各校报名总名单','xlsx')),datas)
+    # print('各校报名总人数：',count(select(s for s in GradeY18 if s.outzh == None)))
 
 
 if __name__ == '__main__':
     db.bind(**DB_PARAMS)
     db.generate_mapping(create_tables=True)
 
-    test2()
+    # clear_studzhall()
+    # clear_keyinfo()
+    # insert_oidcode()
+    set_zh_from_out()
     # get_reg_data()
     # check_regdata_name_sch()
     # get_out_local()
