@@ -163,6 +163,25 @@ def set_zh_from_out():
 #             if stud.ssrid != keyinfo.ssrid:
 #                 print(stud.name,stud.sch,stud.ssrid,stud.idcode)
 #                 print(keyinfo.name,keyinfo.sch,keyinfo.ssrid,keyinfo.idcode)
+# @db_session
+# def test():
+#     for stud in select(s for s in GradeY18):
+#         zh_recos = select(zh for zh in StudZhAll if zh.gsrid == stud.gsrid)
+#         for zh_reco in zh_recos:
+#             if stud.dsrid != zh_reco.dsrid:
+#                 print('地区学号不同:')
+#                 print(stud.name,stud.sch,stud.idcode,stud.dsrid)
+#                 print(zh_reco.name,zh_reco.sch,zh_reco.idcode,zh_reco.dsrid)
+
+
+# @db_session
+# def test2():
+#     for keyinfo in select(s for s in KeyInfoChg):
+#         studs = select(s for s in GradeY18 if s.idcode == keyinfo.idcode)
+#         for stud in studs:
+#             if stud.ssrid != keyinfo.ssrid:
+#                 print(stud.name,stud.sch,stud.ssrid,stud.idcode)
+#                 print(keyinfo.name,keyinfo.sch,keyinfo.ssrid,keyinfo.idcode)
 
 
 # # 依据身份证号分拣出跨省市县转学
@@ -311,10 +330,14 @@ if __name__ == '__main__':
     db.bind(**DB_PARAMS)
     db.generate_mapping(create_tables=True)
 
+<<<<<<< HEAD
     clear_studzhall()
     # clear_keyinfo()h
     # insert_oidcode()
     # set_zh_from_out()
+=======
+    test2()
+>>>>>>> 95cb7c190cb08f3e7db2e0a88a03b711c866c24d
     # get_reg_data()
     # check_regdata_name_sch()
     # get_out_local()
