@@ -333,14 +333,10 @@ if __name__ == '__main__':
     db.bind(**DB_PARAMS)
     db.generate_mapping(create_tables=True)
 
-<<<<<<< HEAD
     clear_studzhall()
-    # clear_keyinfo()h
-    # insert_oidcode()
-    # set_zh_from_out()
-=======
-    test2()
->>>>>>> 95cb7c190cb08f3e7db2e0a88a03b711c866c24d
+    clear_keyinfo()
+    insert_oidcode()
+    set_zh_from_out()
     # get_reg_data()
     # check_regdata_name_sch()
     # get_out_local()
