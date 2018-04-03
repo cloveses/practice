@@ -64,6 +64,8 @@ class KeyInfoChg(db.Entity):
 
 # #  \copy studzhall (gsrid,dsrid,idcode,name,sex,birth,sch,zhtype,optdate,zhsrc,zhdes) from 1718zh.csv with csv
 
+# #  \copy keyinfochg (ssrid,oname,name,osex,sex,obirth,birth,oidcode,idcode,sch,grade,sclass) from d:\work2018\grade32018\keyinfochg.csv with csv
+
 # # delete from studzhall where zhtype='跨省就学转学(入)';
 
 # # select distinct(zhtype) from studzhall;
@@ -201,10 +203,10 @@ if __name__ == '__main__':
     db.bind(**DB_PARAMS)
     db.generate_mapping(create_tables=True)
 
-    # clear_studzhall()
-    # clear_keyinfo()
-    # insert_oidcode()
-    # set_zh_from_out()
-    # set_outzh_local()
-    # set_localzh()
+    clear_studzhall()
+    clear_keyinfo()
+    insert_oidcode()
+    set_zh_from_out()
+    set_outzh_local()
+    set_localzh()
     # get_sch_data_xls()
