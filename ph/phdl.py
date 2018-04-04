@@ -1,4 +1,5 @@
 from pony.orm import *
+
 DB_PARAMS = {
     'provider':'postgres',
     'user':'postgres',
@@ -6,6 +7,7 @@ DB_PARAMS = {
     'host':'localhost',
     'database':'ph18'
 }
+
 db = Database()
 
 # class  StudPh(db.Entity):
@@ -63,6 +65,7 @@ class SkilLvl(db.Entity):
 #     name = Required(str)
 #     sex = Required(str)
 #     sch = Required(str)
+#     # 免考标志
 #     free_flag = Required(bool,sql_default=False)
 #     # 选项
 #     jump_option = Optional(int)
