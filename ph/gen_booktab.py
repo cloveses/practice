@@ -86,8 +86,8 @@ def gen_page_elmnts(pdatas,sch = '泗县一中',group_name = '女',test_date = '
 def gen_elements(datas,sch = '泗县一中',group_name = '女',test_date = '4月21日上午'):
     elements = []
     for i in range(math.ceil(len(datas) / PAGE_NUM)):
-        start = i * 24
-        end = (i + 1) * 24
+        start = i * PAGE_NUM
+        end = (i + 1) * PAGE_NUM
         pdatas = []
         pdatas.extend(TAB_HEAD)
         for index,data in enumerate(datas[start:end]):

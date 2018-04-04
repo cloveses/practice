@@ -56,6 +56,12 @@ myreverse(Mlst) -> myreverse(Mlst,[]).
 myreverse([],Res) -> Res;
 myreverse([H|Mlst],Res) -> myreverse(Mlst,[H|Res]).
 
+% No. 8
+% merge([]) -> [];
+% merge(Mlst) ->merge(Mlst,[],[]).
+
+
+
 % 1、将列表中的integer,float,atom转成字符串并合并成一个字个字符串：[1,a,4.9,"sdfds"] 结果："1a4.9sdfds"（禁用++ -- append concat实现）
 % 2、得到列表或无组中的指定位的元素   {a,g,c,e} 第1位a      [a,g,c,e] 第1位a（禁用erlang lists API实现）
 % 3、根据偶数奇数过淲列表或元组中的元素（禁用API实现）
