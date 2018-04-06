@@ -58,14 +58,14 @@ format2([H|T],Lb) ->
         Res ->format2(T,combb(H,Res,Lb))
     end.
 
-combb(H,Res,Lb) when length(H) == 2,length(Res) == 2 ->
-    lists:keyreplace(element(1,Res),Lb,{element(1,Res),element(2,Res) + element(2,H)});
+combb({K,Va},{K,Vb},Lb)->
+    lists:keyreplace(K,1,Lb,{K,Va + Vb});
 
 combb(H,Res,Lb) when is_tuple(Res)->
     {_,Ht} = lists:split(1,tuple_to_list(H)),
     {[K|_],Rt} = lists:split(1,tuple_to_list(Res)),
-    lists:keyreplace(K,Lb,{K,[list_to_tuple(Ht),list_to_tuple(Rt)]});
+    lists:keyreplace(K,1,Lb,{K,[list_to_tuple(Ht),list_to_tuple(Rt)]});
 
 combb(H,[K,Rt],Lb) ->
     {_,Ht} = lists:split(1,tuple_to_list(H)),
-    lists:keyreplace(K,Lb,{K,[list_to_tuple(Ht)|Rt]}).
+    lists:keyreplace(K,1,Lb,{K,[list_to_tuple(Ht)|Rt]}).
