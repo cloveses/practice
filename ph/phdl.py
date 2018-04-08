@@ -10,36 +10,6 @@ DB_PARAMS = {
 
 db = Database()
 
-# class  StudPh(db.Entity):
-#     name = Required(str)
-#     sa = Optional(int,default=0)
-#     sb = Optional(int,default=0)
-#     sc = Optional(int,default=0)
-#     a = Optional(float)
-#     b = Optional(float)
-#     c = Optional(float)
-#     score = Optional(float)
-
-# class Tssd(db.Entity):
-#     name = Required(str)
-#     run8 = Optional(int)
-#     run10 = Optional(int)
-#     ropeskip = Optional(int)
-#     longskip = Optional(int)
-#     shotput = Optional(int)
-#     sitreach = Optional(int)
-
-# class Tssdw(db.Entity):
-#     examid = Required(text)
-#     name = Required(str)
-#     run8 = Optional(int)
-#     run10 = Optional(int)
-#     ropeskip = Optional(int)
-#     longskip = Optional(int)
-#     shotput = Optional(int)
-#     sitreach = Optional(int)
-#     noflag = Optional(bool)
-
 # 跑步评分标准
 class RunLvl(db.Entity):
     score = Required(int)
@@ -59,30 +29,34 @@ class SkilLvl(db.Entity):
     bend_woman = Required(int)
 
 # 体育成绩总表
-# class  StudPh(db.Entity):
-#     signid = Required(str)
-#     phid = Required(str)
-#     name = Required(str)
-#     sex = Required(str)
-#     sch = Required(str)
-#     # 免考标志
-#     free_flag = Required(bool,sql_default=False)
-#     # 选项
-#     jump_option = Optional(int)
-#     rope_option = Optional(int)
-#     globe_option = Optional(int)
-#     bend_option = Optional(int)
-#     # 测试数据
-#     run = Optional(int)
-#     jump = Optional(int)
-#     skill = Optional(int)
-#     # 测试成绩
-#     run_score = Optional(int)
-#     jump_score = Optional(int)
-#     skill_score = Optional(int)
-#     total_score = Optional(int)
+class  StudPh(db.Entity):
+    signid = Required(str)
+    phid = Optional(str,nullable = True)
+    name = Required(str)
+    sex = Required(str)
+    sch = Required(str)
+    schcode = Required(str)
+    # 用于乱序
+    sturand = Optional(float,nullable = True)
+    # 免考标志
+    free_flag = Optional(bool,nullable = True)
+    # 选项
+    jump_option = Optional(int,nullable = True)
+    rope_option = Optional(int,nullable = True)
+    globe_option = Optional(int,nullable = True)
+    bend_option = Optional(int,nullable = True)
+    # 测试数据
+    run = Optional(int,nullable = True)
+    jump = Optional(int,nullable = True)
+    skill = Optional(int,nullable = True)
+    # 测试成绩
+    run_score = Optional(int,nullable = True)
+    jump_score = Optional(int,nullable = True)
+    skill_score = Optional(int,nullable = True)
+    total_score = Optional(int,nullable = True)
 
-#     memo = Optional(str)
+    memo = Optional(str,nullable = True)
+
 
 # 免考申请表 附件5
 class FreeExam(db.Entity):
@@ -96,7 +70,7 @@ class FreeExam(db.Entity):
 
 # 选考项目确认表 附件6
 class ItemSelect(db.Entity):
-    schseq = Optional(int)
+    schseq = Optional(int,nullable = True)
     signid = Required(str)
     phid = Required(str)
     name = Required(str)
@@ -105,8 +79,6 @@ class ItemSelect(db.Entity):
     globe_option = Optional(int,sql_default=0)
     bend_option = Optional(int,sql_default=0)
 
-db.bind(**DB_PARAMS)
-db.generate_mapping(create_tables=True)
 # with db_session:
 #     for p in select(p for p in Tssd):
 #         print(p.name)
@@ -165,6 +137,8 @@ def score_bend_woman(long):
     return 0 if ret is None  else ret
 
 if __name__ == '__main__':
+    db.bind(**DB_PARAMS)
+    db.generate_mapping(create_tables=True)
     print(score_run_man(800))
     print(score_run_woman(500))
     print(score_globe_man(323))
