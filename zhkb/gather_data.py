@@ -3,6 +3,10 @@ import csv
 import xlrd
 from db_mod import *
 
+
+# 导入初三在校生、转学表、关键信息变更表（excel格式）到数据库中
+# 三类表分别存放子目录：chg、gradey18、keyinfo之中
+
 ZH_KS = ('gsrid','dsrid','idcode','name','sex','birth',
     'sch','zhtype','optdate','zhsrc','zhdes')
 GRADE_KS = ('sch','grade','sclass','gsrid','ssrid',
