@@ -35,5 +35,5 @@ if __name__ == '__main__':
     db.generate_mapping(create_tables=True)
 
     gath_data(StudZhAll,ZH_KS,'chg')
-    gath_data(GradeY18,GRADE_KS,'gradey18',0)
+    gath_data(GradeY18,GRADE_KS,'gradey18',0) # 末尾行无多余数据
     gath_data(KeyInfoChg,kEYINFO_KS,'keyinfo')
