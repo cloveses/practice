@@ -93,3 +93,18 @@ myreverse([H|Mlst],Res) -> myreverse(Mlst,[H|Res]).
 % 28、对[6,4,5,7,1,8,2,3,9]进行排序（降序--冒泡排序）或API排序
 % 29、将字符串"goods,143:6|money:15|rmb:100|money:100|goods,142:5"解析成[{money,115},{rmb,100},{goods,[{143,6},{142,5}]}]可以代码写定KEY进行匹配归类处理
 % 30、移除元组或列表中指定位置的元素
+
+cacl(_N,L) when not is_tuple(L);not is_list(L) -> "Error!";
+
+cacl(N,L) when is_tuple(L) -> cacl2(N,tuple_to_list(L));
+
+cacl(N,L) ->cacl2(N,L).
+
+cacl2(N,L) when N < 1;N > length(L) ->
+    "Error!";
+
+cacl2(N,L) ->
+    {L1,L2} = lists:split(N,L),
+    L1sum = lists:sum(L1),
+    L2sum = lists:sum(L2),
+    {L1sum div L2sum,L1sum rem L2sum}.
