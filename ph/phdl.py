@@ -34,6 +34,7 @@ class  StudPh(db.Entity):
     phid = Optional(str,nullable = True)
     name = Required(str)
     sex = Required(str)
+    idcode = Required(str)
     sch = Required(str)
     schcode = Required(str)
     # 用于乱序
@@ -74,10 +75,10 @@ class ItemSelect(db.Entity):
     signid = Required(str)
     phid = Required(str)
     name = Required(str)
-    jump_option = Optional(int,sql_default=0)
-    rope_option = Optional(int,sql_default=0)
-    globe_option = Optional(int,sql_default=0)
-    bend_option = Optional(int,sql_default=0)
+    jump_option = Optional(int,default=0)
+    rope_option = Optional(int,default=0)
+    globe_option = Optional(int,default=0)
+    bend_option = Optional(int,default=0)
 
 # with db_session:
 #     for p in select(p for p in Tssd):
