@@ -16,15 +16,34 @@ ITEM_SELECT_TYPE = (int,str,str,str,int,int,int,int)
 
 STUDPH_KS = ('signid','name','sex','idcode','sch','schcode')
 
-class MyExcept(Exception):
-    pass
-
 def get_files(directory):
     files = []
     files = os.listdir(directory)
     files = [f for f in files if f.endswith('.xls') or f.endswith('.xlsx')]
     files = [os.path.join(directory,f) for f in files]
     return files
+
+def check_files(directory,types,grid_end=0,start_row=1):
+    files = get_files(directory)
+    if files:
+        infos = []
+        for file in files:
+            wb = xlrd.open_workbook(file)
+            ws = wb.sheets()[0]
+            nrows = ws.nrows
+            for i in range(start_row,nrows-grid_end):
+                datas = ws.row_values(i)
+                for index,(d,t) in enumerate(zip(datas,types)):
+                    try:
+                        if d != '':
+                            t(d)
+                    except:
+                        infos.append('文件：{}中，第{}行，第{}列数据有误'.format(file,i+1,index+1))
+        print('检验的目录：',directory)
+        if infos:
+            print(infos)
+        else:
+            print('数据检验通过！')
 
 @db_session
 def gath_data(tab_obj,ks,chg_dir,grid_end=1,start_row=1,types=None,start_col=0):
@@ -83,6 +102,8 @@ if __name__ == '__main__':
     db.bind(**DB_PARAMS)
     db.generate_mapping(create_tables=True)
 
+    check_files('freeexam',FREE_EXAM_TYPE)
+    check_files('itemselect',ITEM_SELECT_TYPE)
     # gath_data(FreeExam,FREE_EXAM_KS,'freeexam',0,types=FREE_EXAM_TYPE)
     # gath_data(ItemSelect,ITEM_SELECT_KS,'itemselect',0,types=ITEM_SELECT_TYPE) # 末尾行无多余数据
     # gath_data(StudPh,STUDPH_KS,'studph',0) 
