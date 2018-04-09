@@ -39,9 +39,10 @@ def check_files_select(directory,types,grid_end=0,start_row=1):
                             t(d)
                     except:
                         infos.append('文件：{}中，第{}行，第{}列数据有误'.format(file,i+1,index+1))
-                selects = [int(i) for i in datas[-4:]]
-                if not (sum(selects) == 0 or (selects[0]+selects[1] == 1 and selects[-2]+selects[-1]==1)):
-                    infos.append('文件：{}中，第{}行选项有误'.format(file,i+1))
+                    else:
+                        selects = [int(i) for i in datas[-4:]]
+                        if not (sum(selects) == 0 or (selects[0]+selects[1] == 1 and selects[-2]+selects[-1]==1)):
+                            infos.append('文件：{}中，第{}行选项有误'.format(file,i+1))
         print('检验的目录：',directory)
         if infos:
             for info in infos:
