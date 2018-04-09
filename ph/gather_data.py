@@ -87,7 +87,7 @@ def put2studph():
     for stud in ItemSelect.select():
         studph = StudPh.select(lambda s:s.signid == stud.signid).first()
         if not studph:
-            print(stud.signid,stud.name,stud.sch,'考号错误，查不到此人！')
+            print(stud.signid,stud.name,get_sch(stud.signid),'考号错误，查不到此人！')
         else:
             if stud.jump_option + stud.rope_option + stud.globe_option + stud.bend_option == 0:
                 studph.free_flag = True
