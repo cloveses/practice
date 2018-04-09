@@ -51,6 +51,9 @@ def draw_barcode(canv,idcode,codetype='code128'):
     ## codetype have:code39,code93,code128
     barcd = BAR_METHODS[codetype](idcode,barWidth=1,humanReadable=True)
     barcd.drawOn(canv,BAR_X*mm,BAR_Y*mm)
+    set_font(canv,16,font_name='simsun',font_file='simsun.ttc')
+    canv.drawString(BAR_X*mm+10,BAR_Y*mm,"‡")
+    canv.drawString(BAR_X*mm+42*mm,BAR_Y*mm,"‡")
     # barcode39 = code39.Extended39('34322545666',barHeight=1*cm,barWidth=0.8)
     # barcode39.drawOn(c,20,20)
     # barcode93 = code93.Standard93('34322545666')
@@ -69,11 +72,12 @@ def draw_page(canv,stud):
     # canv.drawImage('bg.jpg',POSITIONS[-1][0]*mm,POSITIONS[-1][1]*mm)
     for index,info in enumerate(stud[:5]):
         canv.drawString(POS_X*mm,POS_Y[index]*mm,''.join((ITEM_NAMES[index],info)))
-    # 绘制条形码
-    draw_barcode(canv,stud[0])
     # 绘制照片
     canv.drawImage(stud[-1],IMG_X*mm,IMG_Y*mm)
+    # 绘制条形码
+    draw_barcode(canv,stud[0])
     # 绘制水印
+    set_font(canv,10)
     canv.setFillColorRGB(180,180,180,alpha=0.3)
     canv.drawString(IMG_X*mm+mm,IMG_Y*mm+0.5*mm,WATERMARK_TXT)
     canv.showPage()
