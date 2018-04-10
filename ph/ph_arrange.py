@@ -31,9 +31,6 @@ def arrange_phid():
             phid +=1
 
 
-
-
-
 if __name__ == '__main__':
     db.bind(**DB_PARAMS)
     db.generate_mapping(create_tables=True)
