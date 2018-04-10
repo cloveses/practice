@@ -37,6 +37,8 @@ class  StudPh(db.Entity):
     idcode = Required(str)
     sch = Required(str)
     schcode = Required(str)
+    exam_addr = Optional(str,nullable = True)
+    exam_date = Optional(str,nullable = True)
     # 用于乱序
     sturand = Optional(float,nullable = True)
     # 免考标志

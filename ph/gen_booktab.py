@@ -7,6 +7,8 @@ from reportlab.lib import colors
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.lib.pagesizes import A4
 
+from phdl import *
+
 # 生成考试异常登记表
 
 # 表头
@@ -107,32 +109,54 @@ def gen_pdf(elements,file_name='test.pdf'):
     doc = SimpleDocTemplate(file_name,pagesize=(A4[1],A4[0]),topMargin = 15,bottomMargin = 15)
     doc.build(elements)
 
-# 以半天为单位生成登记表
-def get_half_pdf(file_name,datas,sch = '泗县一中',group_name = '女',test_date = '4月21日上午')
-    elements = gen_elements(datas,sch = '泗县一中',group_name = '女',test_date = '4月21日上午')
-    gen_pdf(elements,file_name='test.pdf')
+# # 以半天为单位生成登记表
+# def get_half_pdf(file_name,datas,sch = '泗县一中',group_name = '女',test_date = '4月21日上午')
+#     elements = gen_elements(datas,sch = '泗县一中',group_name = '女',test_date = '4月21日上午')
+#     gen_pdf(elements,file_name='test.pdf')
 
-# 生成半天同一性别登记表
-def get_pdf_type_a():
-    from .booktab_sets import arrange_datas_type_a
-    from .phdl import StudPh
-    for arrange_datas in arrange_datas_type_a:
-        file_name = ''.join(arrange_datas[:2])
-        file_name = ''.join((file_name,'.pdf'))
-        studs = StudPh.select(lambda s:s.sex == arrange_datas[-1] and s.sch == arrange_datas[2]).order_by(StudPh.phid)[:]
-        get_half_pdf(file_name,studs,arrange_datas[0],arrange_datas[-1],arrange_datas[1])
+# # 生成半天同一性别登记表
+# def get_pdf_type_a():
+#     from .booktab_sets import arrange_datas_type_a
+#     from .phdl import StudPh
+#     for arrange_datas in arrange_datas_type_a:
+#         file_name = ''.join(arrange_datas[:2])
+#         file_name = ''.join((file_name,'.pdf'))
+#         studs = StudPh.select(lambda s:s.sex == arrange_datas[-1] and s.sch == arrange_datas[2]).order_by(StudPh.phid)[:]
+#         get_half_pdf(file_name,studs,arrange_datas[0],arrange_datas[-1],arrange_datas[1])
 
-# 生成半天不同性别登记表
-def get_pdf_type_b():
-    from .booktab_sets import arrange_datas_type_b
-    from .phdl import StudPh
-    for arrange_datas in arrange_datas_type_b:
-        file_name = ''.join(arrange_datas[:2])
-        sexes = ('女','男')
-        for sex in sexes:
-            studs = StudPh.select(lambda s:s.sex == sex and s.sch in arrange_datas[-1]).order_by(StudPh.phid)[:]
-            cfile_name = ''.join((file_name,sex,'.pdf'))
-            get_half_pdf(cfile_name,studs,arrange_datas[0],sex,arrange_datas[1])
+# # 生成半天不同性别登记表
+# def get_pdf_type_b():
+#     from .booktab_sets import arrange_datas_type_b
+#     from .phdl import StudPh
+#     for arrange_datas in arrange_datas_type_b:
+#         file_name = ''.join(arrange_datas[:2])
+#         sexes = ('女','男')
+#         for sex in sexes:
+#             studs = StudPh.select(lambda s:s.sex == sex and s.sch in arrange_datas[-1]).order_by(StudPh.phid)[:]
+#             cfile_name = ''.join((file_name,sex,'.pdf'))
+#             get_half_pdf(cfile_name,studs,arrange_datas[0],sex,arrange_datas[1])
+
+# 按生成异常登记表
+def gen_book_tbl(dir_name):
+    exam_addrs = select(s.exam_addr for s in StudPh)
+    exam_dates = select(s.exam_date for s in StudPh)
+    sexes = ('女','男')
+    for exam_date in exam_dates:
+        for exam_addr in exam_addrs:
+            # 生成女子组考生异常登记表
+            studs = select((s.signid,s.phid)
+                for s in StudPh if s.exam_addr==exam_addr and 
+                s.exam_date==exam_date and s.sex==sexes[0]).order_by(StudPh.phid)[:]
+            if count(studs):
+                elements = gen_elements(studs,exam_addr,sexes[0],exam_date)
+                gen_pdf(elements,'.'.join((exam_date,exam_addr,sexes[0])))
+            # 生成男子组考生异常登记表
+            studs = select((s.signid,s.phid)
+                for s in StudPh if s.exam_addr==exam_addr and 
+                s.exam_date==exam_date and s.sex==sexes[1]).order_by(StudPh.phid)[:]
+            if count(studs):
+                elements = gen_elements(studs,exam_addr,sexes[1],exam_date)
+                gen_pdf(elements,'.'.join((exam_date,exam_addr,sexes[1])))
 
 
 if __name__ == '__main__':

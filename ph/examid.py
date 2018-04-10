@@ -5,7 +5,7 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.lib.units import mm
 from reportlab.graphics.barcode import code39, code128, code93
 
-# import getdata
+from phdl import *
 
 ## 尺寸mm
 ID_SIZE = (210,99)
@@ -96,5 +96,28 @@ def gen_pdf(dir_name,sch_name,studs):
 #         studs = getdata.get_studs(sch)
 #         gen_pdf(dir_name,sch,studs)
 
+#以下各函数中照片文件未生成
+
+# 按学校生成准考证
+def gen_examid_sch(dir_name):
+    schs = select(s.sch for s in StudPh)
+    for sch in schs:
+        datas = select((s.phid,s.name,s.sex,s.exam_addr,s.sch,'pho_file')
+         for s in StudPh if s.sch==sch).order_by(phid)
+        gen_pdf(dir_name,sch,datas)
+
+# 按时间段（半日）和考点生成准考证
+def gen_bak_examid(dir_name):
+    exam_addrs = select(s.exam_addr for s in StudPh)
+    exam_dates = select(s.exam_date for s in StudPh)
+    for exam_date in exam_dates:
+        for exam_addr in exam_addrs:
+            studs = select((s.phid,s.name,s.sex,s.exam_addr,s.sch,'pho_file')
+                for s in StudPh if s.exam_addr==exam_addr and s.exam_date==exam_date).order_by(StudPh.phid)
+            gen_pdf(dir_name,exam_addr+exam_date,studs)
+
+
 if __name__ == '__main__':
-    gen_pdf(IMG_PATH,'01中学',STUDS)
+    db.bind(**DB_PARAMS)
+    db.generate_mapping(create_tables=True)
+    # gen_pdf(IMG_PATH,'01中学',STUDS)

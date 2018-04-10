@@ -16,7 +16,7 @@ def set_rand():
 
 @db_session
 def arrange_phid():
-    prefix = 183422250000
+    prefix = 1822250000
     phid = 1
     for arrange_data in arrange_datas:
         if len(arrange_data) == 4:
@@ -37,4 +37,3 @@ def arrange_phid():
 if __name__ == '__main__':
     db.bind(**DB_PARAMS)
     db.generate_mapping(create_tables=True)
-    # arrange_room()
