@@ -1,5 +1,6 @@
 from db_mod import *
 
+#对全部中考报名考生进行资格审查
 
 # zhtype=1  县外转入              outzh=1 
 # zhtype=2  县外转入且县内转入    outzh=2
@@ -20,30 +21,72 @@ def save_datas_xlsx(filename,datas):
 @db_session
 def set_signall_zhtype():
     for stud in SignAll.select():
-        gradey18 = GradeY18.select(lambda s:s.idcode=stud.idcode).first()
+        gradey18 = select(s for s in GradeY18 if s.idcode==stud.idcode).first()
         if gradey18:
             if gradey18.outzh == 1:
                 stud.zhtype = 1
             elif gradey18.outzh == 2:
                 stud.zhtype = 2
-            elif stud.localzh == 1:
+            elif gradey18.localzh == 1:
                 stud.zhtype = 3
-            elif stud.outzh == None and localzh == None:
+            elif gradey18.outzh == None and gradey18.localzh == None:
                 stud.zhtype = 4
         else:
             stud.zhtype = 0
             # 查不到身份证号，即为历届生
+            # print(stud.idcode,stud.name,'no find.')
 
 @db_session
 def get_all_data():
     data_title = ['中考报名号','姓名','性别','身份证号','学校','学校代码']
+
     datas = [data_title,]
-    query = select((s.signid,s.name,s.sex,s.idcode,s.sch) 
-        for s in SignAll if s.zhtype==0)
-    datas.append(query)
+    query = select([s.signid,s.name,s.sex,s.idcode,s.sch] 
+        for s in SignAll if s.zhtype==0)[:]
+    datas.extend(query)
     save_datas_xlsx('.'.join(('全县历届学生名单','xlsx')),datas)
 
     datas = datas[:1]
+    query = select([s.signid,s.name,s.sex,s.idcode,s.sch] 
+        for s in SignAll if s.zhtype==1)[:]
+    datas.extend(query)
+    save_datas_xlsx('.'.join(('全县县外转入享受定向名单','xlsx')),datas)
+
+    datas = datas[:1]
+    query = select([s.signid,s.name,s.sex,s.idcode,s.sch] 
+        for s in SignAll if s.zhtype==2)[:]
+    datas.extend(query)
+    save_datas_xlsx('.'.join(('全县县外转入不享受定向名单','xlsx')),datas)
+
+    # datas = datas[:1]
+    # query = select((s.signid,s.name,s.sex,s.idcode,s.sch) 
+    #     for s in SignAll if s.zhtype==4)
+    # datas.extend(query)
+    # save_datas_xlsx('.'.join(('全县无转学享受定向名单','xlsx')),datas)
+
+    # datas = datas[:1]
+    # query = select((s.signid,s.name,s.sex,s.idcode,s.sch) 
+    #     for s in SignAll if s.zhtype==3)
+    # datas.extend(query)
+    # save_datas_xlsx('.'.join(('全县无转学不享受定向名单','xlsx')),datas)
+
+    schs = select(s.sch for s in SignAll)[:]
+    # print(schs)
+    schs.remove('泗县招生办')
+    for sch in schs:
+        datas = datas[:1]
+        query = select([s.signid,s.name,s.sex,s.idcode,s.sch] 
+            for s in SignAll if s.zhtype==4 and s.sch==sch)[:]
+        datas.extend(query)
+        save_datas_xlsx('.'.join((sch+'应届享受定向名单','xlsx')),datas)
+
+        datas = datas[:1]
+        query = select([s.signid,s.name,s.sex,s.idcode,s.sch] 
+            for s in SignAll if s.zhtype==3 and s.sch==sch)[:]
+        datas.extend(query)
+        save_datas_xlsx('.'.join((sch+'应届不享受定向名单','xlsx')),datas)
+
+
 
 
 # # 将数据导出为excel
@@ -81,4 +124,5 @@ if __name__ == '__main__':
     db.bind(**DB_PARAMS)
     db.generate_mapping(create_tables=True)
 
-    # get_sch_data_xls()
+    # set_signall_zhtype()
+    get_all_data()
