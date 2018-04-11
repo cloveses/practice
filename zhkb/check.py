@@ -112,11 +112,6 @@ def set_localzh():
         if zh_recos and has_local(zh_recos):
             stud.localzh = 1
 
-# 1县外转入              outzh=1 
-# 2县外转入且县内转入    outzh=2
-# 3县内转学              localzh=1
-# 4无转学记录            ouzh=None and localzh=None
-
 
 # 将数据导出为excel
 @db_session

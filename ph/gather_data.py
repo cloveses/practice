@@ -131,10 +131,10 @@ if __name__ == '__main__':
     db.bind(**DB_PARAMS)
     db.generate_mapping(create_tables=True)
 
-    check_files_other('freeexam',FREE_EXAM_TYPE)
-    check_files_select('itemselect',ITEM_SELECT_TYPE)
+    # check_files_other('freeexam',FREE_EXAM_TYPE)
+    # check_files_select('itemselect',ITEM_SELECT_TYPE)
     # gath_data(FreeExam,FREE_EXAM_KS,'freeexam',0,types=FREE_EXAM_TYPE)
     # gath_data(ItemSelect,ITEM_SELECT_KS,'itemselect',0,types=ITEM_SELECT_TYPE) # 末尾行无多余数据
-    # gath_data(StudPh,STUDPH_KS,'studph',0) 
+    gath_data(StudPh,STUDPH_KS,'studph',0) 
     # check_select()
     # put2studph()

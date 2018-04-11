@@ -7,7 +7,7 @@ DB_PARAMS = {
     'user':'postgres',
     'password':'123456',
     'host':'localhost',
-    'database':'zkbm2018'
+    'database':'sc2018'
 }
 db = Database()
 
@@ -54,3 +54,15 @@ class KeyInfoChg(db.Entity):
     sch = Required(str)
     grade = Required(str)
     sclass = Required(str)
+
+class SignAll(db.Entity):
+    signid = Required(str)
+    name = Required(str)
+    sex = Required(str)
+    idcode = Required(str)
+    sch = Required(str)
+    schcode = Required(str)
+    zhtype = Optional(int,nullable = True)
+    # 1 县外转入，2 县外转入，县内转
+    # 3 县内转学，4 无转学记录
+    # 0 非应届生
