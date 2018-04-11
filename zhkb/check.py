@@ -1,5 +1,7 @@
 from db_mod import *
 
+# 提供给招办的预报名名单的处理程序
+
 
 # # \copy gradey18 (sch,grade,sclass,gsrid,ssrid,dsrid,name,idcode,sex) from g:\grade32018\grade183.csv with csv
 
@@ -111,6 +113,12 @@ def set_localzh():
         zh_recos = get_zh_recos(stud)
         if zh_recos and has_local(zh_recos):
             stud.localzh = 1
+
+
+# 1县外转入              outzh=1 
+# 2县外转入且县内转入    outzh=2
+# 3县内转学              localzh=1
+# 4无转学记录            ouzh=None and localzh=None
 
 
 # 将数据导出为excel

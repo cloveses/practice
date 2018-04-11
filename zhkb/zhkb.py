@@ -1,5 +1,6 @@
 from db_mod import *
 
+# 提供给招办的预报名名单的处理程序
 
 # # \copy gradey18 (sch,grade,sclass,gsrid,ssrid,dsrid,name,idcode,sex) from g:\grade32018\grade183.csv with csv
 
