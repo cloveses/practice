@@ -149,25 +149,42 @@ def gen_book_tbl():
         exam_date = arrange_data[1]
 
         # 生成女子组考生异常登记表
-        studs = select( s
-            for s in StudPh if s.exam_addr==exam_addr and 
+        studs = select(s for s in StudPh if s.exam_addr==exam_addr and 
             s.exam_date==exam_date and s.sex==sexes[0]).order_by(StudPh.phid)
         studs =[(s.signid,s.phid) for s in studs]
         if studs:
             elements = gen_elements(studs,group_num,exam_addr,sexes[0],exam_date)
             gen_pdf(elements,''.join((exam_addr,exam_date,sexes[0],'.pdf')))
             group_num += math.ceil(len(studs) / PAGE_NUM)
+        else:
+            print('no',exam_addr,exam_date,'女')
 
         # 生成男子组考生异常登记表
-        studs = select( s
-            for s in StudPh if s.exam_addr==exam_addr and 
+        studs = select( s for s in StudPh if s.exam_addr==exam_addr and 
             s.exam_date==exam_date and s.sex==sexes[1]).order_by(StudPh.phid)
         studs =[(s.signid,s.phid) for s in studs]
         if studs:
             elements = gen_elements(studs,group_num,exam_addr,sexes[1],exam_date)
             gen_pdf(elements,''.join((exam_addr,exam_date,sexes[1],'.pdf')))
             group_num += math.ceil(len(studs) / PAGE_NUM)
+        else:
+            print('no',exam_addr,exam_date,'男')
 
+# 统计各考点各校考生人数
+@db_session
+def count_stud_num():
+    for arrange_data in arrange_datas:
+        exam_addr = arrange_data[0]
+        exam_date = arrange_data[1]
+
+        if len(arrange_data) == 4:
+            for sch in arrange_data[-2]:
+                print(exam_date,exam_addr,sch,
+                    count(select(s for s in StudPh if s.sch==sch and s.sex==arrange_data[-1])),arrange_data[-1])
+        elif len(arrange_data) == 3:
+            for sch in arrange_data[-1]:
+                print(exam_date,exam_addr,sch,
+                    count(select(s for s in StudPh if s.sch==sch)))
 
 if __name__ == '__main__':
     # DATAS = [['0','1'] for i in range(50)]
@@ -175,6 +192,7 @@ if __name__ == '__main__':
     # gen_pdf(elements)
     db.bind(**DB_PARAMS)
     db.generate_mapping(create_tables=True)
-    gen_book_tbl()
+    # gen_book_tbl()
+    count_stud_num()
 
 

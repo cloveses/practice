@@ -23,6 +23,7 @@ def get_files(directory):
     files = [os.path.join(directory,f) for f in files]
     return files
 
+# 检验各校上报体育选项中数据
 def check_files_select(directory,types,grid_end=0,start_row=1):
     files = get_files(directory)
     if files:
@@ -50,6 +51,7 @@ def check_files_select(directory,types,grid_end=0,start_row=1):
         else:
             print(file,'数据检验通过！')
 
+# 检验各校上报的体育免考生数据
 def check_files_other(directory,types,grid_end=0,start_row=1):
     files = get_files(directory)
     if files:
@@ -73,7 +75,7 @@ def check_files_other(directory,types,grid_end=0,start_row=1):
         else:
             print(file,'数据检验通过！')
 
-
+# 将电子表格中数据导入数据库中
 @db_session
 def gath_data(tab_obj,ks,chg_dir,grid_end=1,start_row=1,types=None,start_col=0):
     """start_row＝1 有一行标题行；grid_end=1 末尾行不导入"""
@@ -91,14 +93,16 @@ def gath_data(tab_obj,ks,chg_dir,grid_end=1,start_row=1,types=None,start_col=0):
             # print(datas)
             tab_obj(**datas)
 
+# 获取指定中考报名号学生的所在学校
 @db_session
 def get_sch(signid):
-    stud = StudPh.select(lambda s:s.signid == signid).first()
+    stud = select(s for s in StudPh if s.signid == signid).first()
     if stud:
         return stud.sch
     else:
         '没有查到该生所在学校。'
 
+# 检验选择错误
 @db_session
 def check_select():
     for stud in ItemSelect.select():
@@ -111,10 +115,11 @@ def check_select():
                     stud.globe_option + stud.bend_option == 1):
                 print(stud.signid,stud.name,get_sch(stud.signid),'选项有误，请检查！')
 
+# 导入考生选项表至总表StudPh
 @db_session
 def put2studph():
     for stud in ItemSelect.select():
-        studph = StudPh.select(lambda s:s.signid == stud.signid).first()
+        studph = select(s for s in StudPh if s.signid == stud.signid).first()
         if not studph:
             print(stud.signid,stud.name,get_sch(stud.signid),'考号错误，查不到此人！')
         else:
@@ -127,6 +132,19 @@ def put2studph():
                 globe_option=stud.globe_option,
                 bend_option=stud.bend_option)
 
+# 修正错误临时用
+# @db_session
+# def edit_phid_temp():
+#     wb = xlrd.open_workbook('2018中考理化体育考试号.xlsx')
+#     ws = wb.sheets()[0]
+#     nrows = ws.nrows
+#     for i in range(1,nrows):
+#         row = ws.row_values(i)
+#         stud = select(s for s in StudPh if s.signid==row[0]).first()
+#         # stud.phid = row[1]
+#         stud.exam_addr = row[7]
+#         stud.exam_date = row[8]
+
 if __name__ == '__main__':
     db.bind(**DB_PARAMS)
     db.generate_mapping(create_tables=True)
@@ -135,6 +153,6 @@ if __name__ == '__main__':
     # check_files_select('itemselect',ITEM_SELECT_TYPE)
     # gath_data(FreeExam,FREE_EXAM_KS,'freeexam',0,types=FREE_EXAM_TYPE)
     # gath_data(ItemSelect,ITEM_SELECT_KS,'itemselect',0,types=ITEM_SELECT_TYPE) # 末尾行无多余数据
-    gath_data(StudPh,STUDPH_KS,'studph',0) 
+    # gath_data(StudPh,STUDPH_KS,'studph',0) 
     # check_select()
     # put2studph()

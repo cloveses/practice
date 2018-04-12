@@ -82,12 +82,37 @@ class ItemSelect(db.Entity):
     globe_option = Optional(int,default=0)
     bend_option = Optional(int,default=0)
 
-# with db_session:
-#     for p in select(p for p in Tssd):
-#         print(p.name)
-#         if not((p.run8 or p.run10) and (p.ropeskip or p.longskip) and
-#                     (p.shotput or p.sitreach)):
-#             print(p.name,'error!')
+# 测试用表
+class  StudPhTest(db.Entity):
+    signid = Required(str)
+    phid = Optional(str,nullable = True)
+    name = Required(str)
+    sex = Required(str)
+    idcode = Required(str)
+    sch = Required(str)
+    schcode = Required(str)
+    exam_addr = Optional(str,nullable = True)
+    exam_date = Optional(str,nullable = True)
+    # 用于乱序
+    sturand = Optional(float,nullable = True)
+    # 免考标志
+    free_flag = Optional(bool,nullable = True)
+    # 选项
+    jump_option = Optional(int,nullable = True)
+    rope_option = Optional(int,nullable = True)
+    globe_option = Optional(int,nullable = True)
+    bend_option = Optional(int,nullable = True)
+    # 测试数据
+    run = Optional(int,nullable = True)
+    jump = Optional(int,nullable = True)
+    skill = Optional(int,nullable = True)
+    # 测试成绩
+    run_score = Optional(int,nullable = True)
+    jump_score = Optional(int,nullable = True)
+    skill_score = Optional(int,nullable = True)
+    total_score = Optional(int,nullable = True)
+
+    memo = Optional(str,nullable = True)
 
 def score_run_man(time):
     with db_session:
