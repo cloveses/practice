@@ -8,6 +8,7 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.lib.pagesizes import A4
 
 from phdl import *
+from booktab_sets import arrange_datas
 
 # 生成考试异常登记表
 
@@ -85,7 +86,7 @@ def gen_page_elmnts(pdatas,group_num,sch = '泗县一中',group_name = '女',tes
     return page_elmnts
 
 # 生成所有页元素
-def gen_elements(datas,sch = '泗县一中',group_name = '女',test_date = '4月21日上午'):
+def gen_elements(datas,group_num,sch = '泗县一中',group_name = '女',test_date = '4月21日上午'):
     elements = []
     for i in range(math.ceil(len(datas) / PAGE_NUM)):
         start = i * PAGE_NUM
@@ -99,7 +100,7 @@ def gen_elements(datas,sch = '泗县一中',group_name = '女',test_date = '4月
             # 生成序号
             row[8] = index + 1
             pdatas.append(row)
-        page_elmnts = gen_page_elmnts(pdatas,group_num = str(i+1),sch = '泗县一中',group_name = '女',test_date = '4月21日上午')
+        page_elmnts = gen_page_elmnts(pdatas,group_num = str(group_num+i+1),sch =sch,group_name =group_name,test_date =test_date)
         elements.extend(page_elmnts)
         elements.append(PAGE_STOP)
     return elements
@@ -139,27 +140,33 @@ def gen_pdf(elements,file_name='test.pdf'):
 # 生成异常登记表
 @db_session
 def gen_book_tbl():
-    exam_addrs = select(s.exam_addr for s in StudPh)
-    exam_dates = select(s.exam_date for s in StudPh)
+    # exam_addrs = select(s.exam_addr for s in StudPh)
+    # exam_dates = select(s.exam_date for s in StudPh)
     sexes = ('女','男')
-    for exam_date in exam_dates:
-        for exam_addr in exam_addrs:
-            # 生成女子组考生异常登记表
-            studs = select( s
-                for s in StudPh if s.exam_addr==exam_addr and 
-                s.exam_date==exam_date and s.sex==sexes[0]).order_by(StudPh.phid)
-            studs =[(s.signid,s.phid) for s in studs]
-            if studs:
-                elements = gen_elements(studs,exam_addr,sexes[0],exam_date)
-                gen_pdf(elements,''.join((exam_date,exam_addr,sexes[0],'.pdf')))
-            # 生成男子组考生异常登记表
-            studs = select( s
-                for s in StudPh if s.exam_addr==exam_addr and 
-                s.exam_date==exam_date and s.sex==sexes[1]).order_by(StudPh.phid)
-            studs =[(s.signid,s.phid) for s in studs]
-            if studs:
-                elements = gen_elements(studs,exam_addr,sexes[1],exam_date)
-                gen_pdf(elements,''.join((exam_date,exam_addr,sexes[1],'.pdf')))
+    group_num = 0
+    for arrange_data in arrange_datas:
+        exam_addr = arrange_data[0]
+        exam_date = arrange_data[1]
+
+        # 生成女子组考生异常登记表
+        studs = select( s
+            for s in StudPh if s.exam_addr==exam_addr and 
+            s.exam_date==exam_date and s.sex==sexes[0]).order_by(StudPh.phid)
+        studs =[(s.signid,s.phid) for s in studs]
+        if studs:
+            elements = gen_elements(studs,group_num,exam_addr,sexes[0],exam_date)
+            gen_pdf(elements,''.join((exam_addr,exam_date,sexes[0],'.pdf')))
+            group_num += math.ceil(len(studs) / PAGE_NUM)
+
+        # 生成男子组考生异常登记表
+        studs = select( s
+            for s in StudPh if s.exam_addr==exam_addr and 
+            s.exam_date==exam_date and s.sex==sexes[1]).order_by(StudPh.phid)
+        studs =[(s.signid,s.phid) for s in studs]
+        if studs:
+            elements = gen_elements(studs,group_num,exam_addr,sexes[1],exam_date)
+            gen_pdf(elements,''.join((exam_addr,exam_date,sexes[1],'.pdf')))
+            group_num += math.ceil(len(studs) / PAGE_NUM)
 
 
 if __name__ == '__main__':
