@@ -137,7 +137,7 @@ def gen_pdf(elements,file_name='test.pdf'):
 #             cfile_name = ''.join((file_name,sex,'.pdf'))
 #             get_half_pdf(cfile_name,studs,arrange_datas[0],sex,arrange_datas[1])
 
-# 生成异常登记表
+# 生成所有异常登记表
 @db_session
 def gen_book_tbl():
     # exam_addrs = select(s.exam_addr for s in StudPh)
@@ -155,9 +155,12 @@ def gen_book_tbl():
         if studs:
             elements = gen_elements(studs,group_num,exam_addr,sexes[0],exam_date)
             gen_pdf(elements,''.join((exam_addr,exam_date,sexes[0],'.pdf')))
-            group_num += math.ceil(len(studs) / PAGE_NUM)
-        else:
-            print('no',exam_addr,exam_date,'女')
+            print(exam_addr,exam_date,'女',group_num+1,end='-')
+            total = math.ceil(len(studs) / PAGE_NUM)
+            group_num += total
+            print(group_num,total)
+        # else:
+        #     print('no',exam_addr,exam_date,'女')
 
         # 生成男子组考生异常登记表
         studs = select( s for s in StudPh if s.exam_addr==exam_addr and 
@@ -166,9 +169,12 @@ def gen_book_tbl():
         if studs:
             elements = gen_elements(studs,group_num,exam_addr,sexes[1],exam_date)
             gen_pdf(elements,''.join((exam_addr,exam_date,sexes[1],'.pdf')))
-            group_num += math.ceil(len(studs) / PAGE_NUM)
-        else:
-            print('no',exam_addr,exam_date,'男')
+            print(exam_addr,exam_date,'男',group_num+1,end='-')
+            total = math.ceil(len(studs) / PAGE_NUM)
+            group_num += total
+            print(group_num,total)
+        # else:
+        #     print('no',exam_addr,exam_date,'男')
 
 # 统计各考点各校考生人数
 @db_session
@@ -192,7 +198,7 @@ if __name__ == '__main__':
     # gen_pdf(elements)
     db.bind(**DB_PARAMS)
     db.generate_mapping(create_tables=True)
-    # gen_book_tbl()
-    count_stud_num()
+    gen_book_tbl()
+    # count_stud_num()
 
 
