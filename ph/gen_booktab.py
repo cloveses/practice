@@ -62,11 +62,11 @@ FOOT_PARA = Paragraph(FOOT_TEXT,stylesheet['Normal'])
 
 
 # 生成每页元素
-def gen_page_elmnts(pdatas,sch = '泗县一中',group_name = '女',test_date = '4月21日上午'):
+def gen_page_elmnts(pdatas,group_num,sch = '泗县一中',group_name = '女',test_date = '4月21日上午'):
     page_elmnts = []
     page_elmnts.append(TITLE_PARA)
     title_text_sch = "考点：{}".format(sch)
-    title_text_group = "组别: {}子组".format(group_name)
+    title_text_group = "组别:{} {}子组".format(group_num,group_name)
     title_text_date = ''.join((str(datetime.datetime.today().year),'年',test_date))
     sep_sign = "&nbsp;" * 50
     title_text = sep_sign.join((title_text_sch,title_text_group,title_text_date))
@@ -94,12 +94,12 @@ def gen_elements(datas,sch = '泗县一中',group_name = '女',test_date = '4月
         pdatas.extend(TAB_HEAD)
         for index,data in enumerate(datas[start:end]):
             row = [''] * 10
-            row[0] = ''.join(('243547788',data[0]))
-            row[1] = ''.join(('463432433',data[1]))
+            row[0] = data[0]
+            row[1] = data[1]
             # 生成序号
             row[8] = index + 1
             pdatas.append(row)
-        page_elmnts = gen_page_elmnts(pdatas,sch = '泗县一中',group_name = '女',test_date = '4月21日上午')
+        page_elmnts = gen_page_elmnts(pdatas,group_num = str(i+1),sch = '泗县一中',group_name = '女',test_date = '4月21日上午')
         elements.extend(page_elmnts)
         elements.append(PAGE_STOP)
     return elements
@@ -136,32 +136,38 @@ def gen_pdf(elements,file_name='test.pdf'):
 #             cfile_name = ''.join((file_name,sex,'.pdf'))
 #             get_half_pdf(cfile_name,studs,arrange_datas[0],sex,arrange_datas[1])
 
-# 按生成异常登记表
-def gen_book_tbl(dir_name):
+# 生成异常登记表
+@db_session
+def gen_book_tbl():
     exam_addrs = select(s.exam_addr for s in StudPh)
     exam_dates = select(s.exam_date for s in StudPh)
     sexes = ('女','男')
     for exam_date in exam_dates:
         for exam_addr in exam_addrs:
             # 生成女子组考生异常登记表
-            studs = select((s.signid,s.phid)
+            studs = select( s
                 for s in StudPh if s.exam_addr==exam_addr and 
-                s.exam_date==exam_date and s.sex==sexes[0]).order_by(StudPh.phid)[:]
-            if count(studs):
+                s.exam_date==exam_date and s.sex==sexes[0]).order_by(StudPh.phid)
+            studs =[(s.signid,s.phid) for s in studs]
+            if studs:
                 elements = gen_elements(studs,exam_addr,sexes[0],exam_date)
-                gen_pdf(elements,'.'.join((exam_date,exam_addr,sexes[0])))
+                gen_pdf(elements,''.join((exam_date,exam_addr,sexes[0],'.pdf')))
             # 生成男子组考生异常登记表
-            studs = select((s.signid,s.phid)
+            studs = select( s
                 for s in StudPh if s.exam_addr==exam_addr and 
-                s.exam_date==exam_date and s.sex==sexes[1]).order_by(StudPh.phid)[:]
-            if count(studs):
+                s.exam_date==exam_date and s.sex==sexes[1]).order_by(StudPh.phid)
+            studs =[(s.signid,s.phid) for s in studs]
+            if studs:
                 elements = gen_elements(studs,exam_addr,sexes[1],exam_date)
-                gen_pdf(elements,'.'.join((exam_date,exam_addr,sexes[1])))
+                gen_pdf(elements,''.join((exam_date,exam_addr,sexes[1],'.pdf')))
 
 
 if __name__ == '__main__':
-    DATAS = [['0','1'] for i in range(50)]
-    elements = gen_elements(DATAS)
-    gen_pdf(elements)
+    # DATAS = [['0','1'] for i in range(50)]
+    # elements = gen_elements(DATAS)
+    # gen_pdf(elements)
+    db.bind(**DB_PARAMS)
+    db.generate_mapping(create_tables=True)
+    gen_book_tbl()
 
 

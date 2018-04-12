@@ -96,6 +96,7 @@ def gen_pdf(dir_name,sch_name,studs):
 #         studs = getdata.get_studs(sch)
 #         gen_pdf(dir_name,sch,studs)
 
+
 #以下各函数中照片文件未生成
 
 # 按学校生成准考证

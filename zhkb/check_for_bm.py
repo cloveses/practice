@@ -46,17 +46,18 @@ def get_all_data():
     datas.extend(query)
     save_datas_xlsx('.'.join(('全县历届学生名单','xlsx')),datas)
 
+    # 对于招办报名学生，只审查有无县内转学记录，其余情况由招办处理
     datas = datas[:1]
     query = select([s.signid,s.name,s.sex,s.idcode,s.sch] 
-        for s in SignAll if s.zhtype==1)[:]
+        for s in SignAll if s.zhtype !=2 and s.sch=='泗县招生办')[:]
     datas.extend(query)
-    save_datas_xlsx('.'.join(('全县县外转入享受定向名单','xlsx')),datas)
+    save_datas_xlsx('.'.join(('招办报名无县内转学记录名单','xlsx')),datas)
 
     datas = datas[:1]
     query = select([s.signid,s.name,s.sex,s.idcode,s.sch] 
         for s in SignAll if s.zhtype==2)[:]
     datas.extend(query)
-    save_datas_xlsx('.'.join(('全县县外转入不享受定向名单','xlsx')),datas)
+    save_datas_xlsx('.'.join(('招办报名有县内转学记录名单','xlsx')),datas)
 
     # datas = datas[:1]
     # query = select((s.signid,s.name,s.sex,s.idcode,s.sch) 
