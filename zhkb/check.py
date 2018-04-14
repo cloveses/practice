@@ -1,6 +1,6 @@
 from db_mod import *
 
-# 提供给招办的预报名名单的处理程序
+# 提供给招办的预报名（从网上报名）名单的处理程序
 
 
 # # \copy gradey18 (sch,grade,sclass,gsrid,ssrid,dsrid,name,idcode,sex) from g:\grade32018\grade183.csv with csv
@@ -162,4 +162,4 @@ if __name__ == '__main__':
     set_zh_from_out()
     set_outzh_local()
     set_localzh()
-    # get_sch_data_xls()
+    get_sch_data_xls()

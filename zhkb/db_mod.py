@@ -25,7 +25,7 @@ class StudZhAll(db.Entity):
     zhsrc = Optional(str,nullable = True)
     zhdes = Optional(str,nullable = True)
 
-# 三年级学生记录
+# 所有三年级学生
 class GradeY18(db.Entity):
     sch = Required(str)
     grade = Required(str)
@@ -55,6 +55,7 @@ class KeyInfoChg(db.Entity):
     grade = Required(str)
     sclass = Required(str)
 
+# 所有已报名学生信息
 class SignAll(db.Entity):
     signid = Required(str)
     name = Required(str)
@@ -62,6 +63,7 @@ class SignAll(db.Entity):
     idcode = Required(str)
     sch = Required(str)
     schcode = Required(str)
+    graduation_year = Required(str)
     zhtype = Optional(int,nullable = True)
     # 1 县外转入，2 县外转入，县内转
     # 3 县内转学，4 无转学记录

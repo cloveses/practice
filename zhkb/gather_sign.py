@@ -5,9 +5,9 @@ from db_mod import *
 
 
 # 导入初三中考报名所有学生
-
+# 增加届别字段
 SIGN_KS = ('signid','name','sex','idcode','sch',
-    'schcode','zhtype')
+    'schcode','zhtype','graduation_year')
 
 # 1 县外转入，2 县外转入，县内转
 # 3 县内转学，4 无转学记录
