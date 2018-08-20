@@ -57,10 +57,29 @@ class Marker(MyLine):
         super().__init__(canvas,width,color)
         self.start_point = start_point
         self.end_point = end_point
+        self.widget_id = None
 
     def draw(self):
         self.widget_id = self.canvas.create_line(self.start_point,self.end_point, 
             width=self.width, fill=self.color)
+
+class PlateOuter:
+    def __init__(self,canvas,center_point,radius):
+        self.canvas = canvas
+        self.center_point = center_point
+        self.radius = radius
+        self.widget_id = None
+
+    def draw(self):
+        x0 = self.center_point[0] - self.radius
+        y0 = self.center_point[1] - self.radius
+        x1 = self.center_point[0] + self.radius
+        y1 = self.center_point[1] + self.radius
+        self.canvas.create_oval(x0,y0,x1,y1)
+
+    def delete(self):
+        if self.widget_id:
+            self.canvas.delete(self.widget_id)
 
 class Plate:
 
@@ -80,6 +99,11 @@ class Plate:
         for start,end in zip(gen_end_points(self.center_point,self.radius,6),
                 gen_end_points(self.center_point,self.radius + self.plong,6)):
             self.markers.append(Marker(start[1],end[1],self.canvas))
+        self.markers.append(PlateOuter(self.canvas,self.center_point,self.radius+20))
+
+    def delete(self):
+        for w in self.markers:
+            self.canvas.delete(w)
 
 class MyClocker:
 
@@ -87,7 +111,7 @@ class MyClocker:
         self.root = root
         self.plate = Plate(canvas, center_point, radius, plong)
         self.s_pointer = Pointer(6,canvas,center_point,plong=180,width=1,color='red')
-        self.m_pointer = Pointer(3,canvas,center_point,plong=150,width=2,color='black')
+        self.m_pointer = Pointer(3,canvas,center_point,plong=150,width=2,color='blue')
         self.h_pointer = Pointer(1,canvas,center_point,plong=120,width=4,color='black')
         self.plate.draw()
         self.s_pointer.draw()
@@ -96,11 +120,12 @@ class MyClocker:
         self.root.update()
 
     def walk(self):
+        print(self.s_pointer.count)
         self.s_pointer.walk()
-        if self.s_pointer.count + 1 % 30 == 0:
+        if (self.s_pointer.count + 1) % 30 == 0:
             self.m_pointer.walk()
-        if self.m_pointer.count + 1 % 4 == 0:
-            self.h_pointer.walk()
+            if (self.m_pointer.count + 1) % 4 == 0:
+                self.h_pointer.walk()
 
     def start(self):
         while True:
