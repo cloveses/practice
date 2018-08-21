@@ -57,7 +57,6 @@ class Marker(MyLine):
         super().__init__(canvas,width,color)
         self.start_point = start_point
         self.end_point = end_point
-        self.widget_id = None
 
     def draw(self):
         self.widget_id = self.canvas.create_line(self.start_point,self.end_point, 
