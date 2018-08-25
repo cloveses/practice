@@ -112,6 +112,9 @@ class MyClocker:
         self.s_pointer = Pointer(6,canvas,center_point,plong=180,width=1,color='red')
         self.m_pointer = Pointer(3,canvas,center_point,plong=150,width=2,color='blue')
         self.h_pointer = Pointer(1,canvas,center_point,plong=120,width=4,color='black')
+        self.display()
+
+    def display(self):
         self.plate.draw()
         self.s_pointer.draw()
         self.m_pointer.draw()
