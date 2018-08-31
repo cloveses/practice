@@ -122,7 +122,6 @@ class MyClocker:
         self.root.update()
 
     def walk(self):
-        print(self.s_pointer.count)
         self.s_pointer.walk()
         if (self.s_pointer.count + 1) % 30 == 0:
             self.m_pointer.walk()
