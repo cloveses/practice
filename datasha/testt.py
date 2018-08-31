@@ -22,12 +22,13 @@ def get_data(filename):
 def verify(filename):
     max_seq = max(d.seq for d in Data)
     with open(filename,'wt') as f:
-        for i in range(max_seq):
+        for i in range(max_seq+1):
             datas = select(d for d in Data if d.seq == i).order_by(Data.group)
             for data in datas:
-                f.write(data.mdata)
+                # f.write(data.mdata)
+                f.write(data.mdata[data.mdata.index(' ')+1:])
                 f.write('\n')
 
 if __name__ == '__main__':
-    get_data('dumpnew.atom')
-    verify('my.txt')
+    # get_data('dumpnew.atom')
+    verify('myt.txt')
