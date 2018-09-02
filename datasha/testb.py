@@ -30,12 +30,12 @@ def tofile(data,filename):
 if __name__ == '__main__':
     inputf = 'abc.txt'
     outputf = 'result.txt'
-    print(len(sys.argv),sys.argv)
+#     print(len(sys.argv),sys.argv)
     if len(sys.argv) >= 2:
         inputf = sys.argv[1]
     if len(sys.argv) >= 3:
         outputf = sys.argv[2]
         
-    print(inputf,outputf)
+#     print(inputf,outputf)
     data = getdata(inputf)
     tofile(data,outputf)
