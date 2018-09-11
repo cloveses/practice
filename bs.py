@@ -47,12 +47,16 @@ def get_result():
         for sch in schs:
             rets = [sch,]
             grade_num = count(s for s in SchRec if s.sch==sch and s.grade==grade)
+            if grade_num == 0:
+                continue
             totals = sum(s.number for s in SchRec if s.sch==sch and s.grade==grade)
             rets.append(grade_num)
             rets.append(totals)
             rets.append(round(totals/grade_num,2))
             min_num = min(s.number for s in SchRec if s.sch==sch and s.grade==grade)
             max_num = max(s.number for s in SchRec if s.sch==sch and s.grade==grade)
+            rets.append(min_num)
+            rets.append(max_num)
             for ret in rets:
                 print(ret,end=' ')
             print()
@@ -66,6 +70,8 @@ def get_result():
         rets.append(round(totals/grade_num,2))
         min_num = min(s.number for s in SchRec if s.sch==sch)
         max_num = max(s.number for s in SchRec if s.sch==sch)
+        rets.append(min_num)
+        rets.append(max_num)
         for ret in rets:
             print(ret,end=' ')
         print()
