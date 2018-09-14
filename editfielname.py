@@ -1,10 +1,19 @@
 import os
 import xlrd
 
+def get_digit(path):
+    name = os.path.split(path)[-1]
+    digits = list(name)
+    digits = [d for d in digits if d.isdigit()]
+    if digits:
+        return int(''.join(digits))
+    return 0
+
 def get_files(directory):
     files = []
     files = os.listdir(directory)
     files = [os.path.join(directory,f) for f in files]
+    files.sort(key=get_digit)
     return files
 
 def get_data_cols(filename,headline_row_num=1):
