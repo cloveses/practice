@@ -31,7 +31,9 @@ handle_cast(stop,State) ->
 handle_call(sync_hdl,_,State) -> 
     io:format("Sync Action: sync_hdl,Success!~n"),
     {reply,{ok,'sync_hdl'},State}.
-% handle_info(_,State) -> {noreply,State}.
+
+%带外消息回调接口,如果不接收带外消息,则不定义此函数,会忽略到达的消息.
+handle_info(_,State) -> {noreply,State}.
 % code_change(_OldVsn,State,_Extra) -> {ok,State}.
 terminate(_,_) -> 
     io:format("Normal Exit!"),
