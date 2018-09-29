@@ -2,30 +2,28 @@ import asyncio
 import aiohttp
 
 
-async def fetch_get(url):
+async def fetch(params):
     async with aiohttp.ClientSession() as session:
-        async with session.get(url) as r:
+        async with session.request(**params) as r:
             print(r.status)
             print(await r.json())
 
 base_url = 'http://localhost:8080/'
 
 req_lsts = [
-    (fetch_get,base_url),
-    (fetch_get,base_url,{'a':3}),
+    {'method':'get','url':base_url,},
+    {'method':'get','url':base_url,'params':{'aaa':1}},
+    {'method':'post','url':base_url,'data':{'bbb':2}},
 
     ]
 
-async def fetch_gets():
+async def fetch_all():
     for req_lst in req_lsts:
-        if len(req_lst) == 2:
-            await req_lst[0](req_lst[1])
-        else:
-            await req_lst[0](req_lst[1],data=req_lst[2])
+        await fetch(req_lst)
 
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()
-    loop.run_until_complete(fetch_gets())
+    loop.run_until_complete(fetch_all())
     loop.close()
 
 # cookies = {}
