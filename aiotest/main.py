@@ -15,6 +15,7 @@ async def hello(request):
 async def phello(request):
     data = await request.post()
     print(data)
+    print('aaabb')
     return web.json_response({'status':0,'data':{'a':2,'b':2}})
 
 
