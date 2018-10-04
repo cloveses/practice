@@ -1,4 +1,5 @@
 import time
+import struct
 
 def parse_link_header(data):
     '''解析三次握手数据包head'''
@@ -28,5 +29,17 @@ def make_link_header(seq, ack=0, pack_len=0, flag=0, time_stamp=None):
         datas.append(time_stamp)
     return b''.join(datas)
 
+def IP_headchecksum(IP_head):
+
+    checksum = 0
+    headlen = len(IP_head)
+    i=0
+    while i<headlen:
+        temp = struct.unpack('!H',IP_head[i:i+2])[0]
+        checksum = checksum+temp
+        i = i+2
+    checksum = (checksum>>16) + (checksum&0xffff)
+    checksum = checksum+(checksum>>16)
+    return ~checksum
 
 
