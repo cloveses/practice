@@ -7,7 +7,7 @@ def parse_link_header(data):
     ack = int.from_bytes(data[4:8], byteorder='big')
     pack_len = int.from_bytes(data[8:11], byteorder='big')
     pack_second = data[12]
-    pack_msecond = int.from_bytes(data[13:], byteorder='big')
+    pack_msecond = int.from_bytes(data[13:16], byteorder='big')
     return(seq,ack,pack_len,(pack_second,pack_msecond))
 
 def make_link_header(seq, ack=0, pack_len=0, flag=0, time_stamp=None):
@@ -27,19 +27,42 @@ def make_link_header(seq, ack=0, pack_len=0, flag=0, time_stamp=None):
         datas.extend((seconds, ms))
     else:
         datas.append(time_stamp)
+    checksum = 0
+    checksum = checksum.to_bytes(2,byteorder='big')
+    w_size = 1024
+    w_size = w_size.to_bytes(2,byteorder='big')
+    datas.append(checksum)
+    datas.append(w_size)
     return b''.join(datas)
 
-def IP_headchecksum(IP_head):
-
-    checksum = 0
-    headlen = len(IP_head)
-    i=0
-    while i<headlen:
-        temp = struct.unpack('!H',IP_head[i:i+2])[0]
-        checksum = checksum+temp
-        i = i+2
-    checksum = (checksum>>16) + (checksum&0xffff)
-    checksum = checksum+(checksum>>16)
-    return ~checksum
+def loop_add(checksum):
+    while True:
+        if (checksum >> 16) == 0:
+            break
+        checksum = (checksum >> 16) + (checksum&0xffff)
+    return checksum
 
 
+def get_checksum(IP_head):
+    checksum = 0
+    headlen = len(IP_head)
+    i=0
+    while i<headlen:
+        temp = struct.unpack('!H',IP_head[i:i+2])[0]
+        checksum = checksum+temp
+        i = i+2
+    checksum = 65535 - loop_add(checksum)
+    return struct.pack('!H',checksum)
+
+# if __name__ == '__main__':
+#     import random
+#     random.seed(50)
+#     data = [random.randint(0,256) for i in range(50)]
+#     data.extend((0,0))
+#     datab = bytearray(data)
+#     print(data,'\n',datab)
+#     ret = get_checksum(datab)
+#     print(ret)
+#     datac = datab[:-2] + ret
+#     print(datac)
+#     print(get_checksum(datac))

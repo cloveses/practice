@@ -7,16 +7,8 @@ from tools import parse_link_header, make_link_header
 HOST = ''
 PORT = 10888
 MAX_SEQ = 2 ** 32
-# s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-# s.bind((HOST, PORT))
-# data = True
-# while data:
-#     data,address = s.recvfrom(1024)
-#     if data==b'bye':
-#         break
-#     print('Received String:',data.decode('utf-8'))
-#     s.sendto(data,address)
-# s.close()
+HEAD_LEN = 20
+
 
 class Server:
     def __init__(self, host=HOST, port=PORT):
@@ -26,6 +18,7 @@ class Server:
         self.server = (self.host,self.port)
         self.sock = self.get_socket(self.host,self.port)
         self.status = 'LISTEN'
+        self.recv_type = 0
 
     def get_socket(self, host, port):
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -36,7 +29,7 @@ class Server:
         self.seq = random.randint(0,2**16) # y
         self.ack = parse_link_header(data)[0] + 1 # x +1
         flag = 3
-        return make_link_header(self.seq, self.ack, flag=flag, time_stamp=data[-4:])
+        return make_link_header(self.seq, self.ack, flag=flag, time_stamp=data[-8:-4])
 
     def parse_third_data(self, data):
         res = parse_link_header(data)
@@ -50,7 +43,7 @@ class Server:
         self.seq %= MAX_SEQ
         ack = res[0] + 1
         flag = 2
-        data = make_link_header(self.seq,ack,flag=flag,time_stamp=data[-4:])
+        data = make_link_header(self.seq,ack,flag=flag,time_stamp=data[-8:-4])
         self.sock.sendto(data,addr)
         self.status = 'CLOSE-WAIT'
 
@@ -70,7 +63,10 @@ class Server:
     def main(self):
         while True:
             print(self.status)
-            data,addr = self.sock.recvfrom(16)
+            data,addr = self.sock.recvfrom(HEAD_LEN)
+            print(addr)
+            if self.recv_type == 1:
+                pass #recv data
             status = data[11]
             print(status)
             if status == 1:
@@ -81,8 +77,9 @@ class Server:
                 v = self.parse_third_data(data)
                 if v:
                     self.status = 'ESTABLISHED'
+                    self.recv_type = 1
 
-            if status == 4 and 'ESTABLISHED':
+            if status == 4 and self.status = 'ESTABLISHED':
                 self.close1(data,addr)
 
             if status == 2 and self.status == 'LAST-ACK':
