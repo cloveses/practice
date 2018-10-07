@@ -19,7 +19,9 @@ class Client:
         self.sock = self.get_socket()
         self.status = 'CLOSED'
         self.data_length = 0
-        self.wn_size = 0
+        self.wn_size = 600
+        self.bufed_size = 0
+        self.buf = []
 
     def get_socket(self):
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -75,9 +77,26 @@ class Client:
             self.sock.sendto(data,self.server)
             self.status = 'TIME-WAIT'
 
+    def send_file(self):
+        with open(self.filename,'rb') as f:
+            data = True
+            self.seq = 0
+            while data:
+                pass #接收确认并调整缓存等
+                if self.bufed_size + self.data_length > self.wn_size:
+                    time.sleep(2)
+                    continue
+
+                data = f.read(self.data_length)
+                self.buf.append((self.seq,data))
+                pass #发送
+                self.bufed_size += self.data_length
+
+
     def main(self):
         self.build_con()
         print(self.status)
+        # self.send_file()
         self.release()
 
 if __name__ == '__main__':

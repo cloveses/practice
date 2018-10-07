@@ -19,6 +19,7 @@ class Server:
         self.sock = self.get_socket(self.host,self.port)
         self.status = 'LISTEN'
         self.recv_type = 0
+        self.buf = []
 
     def get_socket(self, host, port):
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -79,7 +80,7 @@ class Server:
                     self.status = 'ESTABLISHED'
                     self.recv_type = 1
 
-            if status == 4 and self.status = 'ESTABLISHED':
+            if status == 4 and self.status == 'ESTABLISHED':
                 self.close1(data,addr)
 
             if status == 2 and self.status == 'LAST-ACK':
