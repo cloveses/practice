@@ -31,5 +31,5 @@ app.add_routes(routes)
 lookup = aiohttp_mako.setup(app, input_encoding='utf-8',
     output_encoding='utf-8',
     default_filters=['decode.utf8'])
-lookup.put_string('index.html','''<html><body><h1>${aa}</h1>${text}</body></html>''')
+lookup.put_string('index.html','''<html><body><h1>${aa}</h1>${aa}</body></html>''')
 web.run_app(app)

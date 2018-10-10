@@ -2,13 +2,21 @@ import time
 import struct
 
 def parse_link_header(data):
-    '''解析三次握手数据包head'''
+    '''解析数据包head'''
     seq = int.from_bytes(data[:4], byteorder='big')
     ack = int.from_bytes(data[4:8], byteorder='big')
     pack_len = int.from_bytes(data[8:11], byteorder='big')
     pack_second = data[12]
     pack_msecond = int.from_bytes(data[13:16], byteorder='big')
     return(seq,ack,pack_len,(pack_second,pack_msecond))
+
+def make_timestamp():
+    ts = time.time()
+    seconds = int(ts) % (2 ** 8)
+    seconds = seconds.to_bytes(1,byteorder = 'big')
+    ms = int(str(ts)[str(ts).index('.')+1:])
+    ms = ms.to_bytes(3,byteorder = 'big')
+    return ts,(seconds,ms)
 
 def make_link_header(seq, ack=0, pack_len=0, flag=0, time_stamp=None):
     '''构造数据包head'''
@@ -19,12 +27,7 @@ def make_link_header(seq, ack=0, pack_len=0, flag=0, time_stamp=None):
     flag = flag.to_bytes(1, byteorder='big')
     datas.extend((seq, ack, pack_len, flag))
     if time_stamp is None:
-        ts = time.time()
-        seconds = int(ts) % (2 ** 8)
-        seconds = seconds.to_bytes(1,byteorder = 'big')
-        ms = int(str(ts)[str(ts).index('.')+1:])
-        ms = ms.to_bytes(3,byteorder = 'big')
-        datas.extend((seconds, ms))
+        datas.extend(make_timestamp()[1])
     else:
         datas.append(time_stamp)
     checksum = 0
@@ -53,6 +56,7 @@ def get_checksum(IP_head):
         i = i+2
     checksum = 65535 - loop_add(checksum)
     return struct.pack('!H',checksum)
+
 
 # if __name__ == '__main__':
 #     import random

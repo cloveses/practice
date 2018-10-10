@@ -1,10 +1,15 @@
 from flask import Flask
 from bluetest import bp
-app = Flask(__name__)
+from flask_mako import MakoTemplates
+from flask_mako import render_template
 
-@app.route('/')
+app = Flask(__name__)
+mako = MakoTemplates(app)
+
+@app.route('/index')
 def hello_world():
-    return 'Hello, World!'
+    # return 'Hello, World!'
+    return render_template('index.html',{'aa':22})
 
 if __name__ == '__main__':
     app.register_blueprint(bp)
