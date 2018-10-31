@@ -66,7 +66,7 @@ class Server:
             print(self.status)
             data,addr = self.sock.recvfrom(HEAD_LEN)
             print(addr)
-            if self.recv_type == 1:
+            if self.recv_type == 1 and status == 2:
                 pass #recv data
             status = data[11]
             print(status)
