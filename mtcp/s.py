@@ -69,7 +69,7 @@ class Server:
             if not check_data(addr[0],HOST,data):
                 continue
             print(addr)
-            if self.recv_type == 1:
+            if self.recv_type == 1 and status == 2:
                 pass #recv data
             status = data[11]
             print(status)
