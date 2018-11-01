@@ -1,14 +1,13 @@
 import socket
 import random
 import time
-from tools import parse_link_header, make_link_header
+from tools import parse_link_header, make_link_header, fill_checknum, check_data
 
 
-HOST = ''
+HOST = socket.gethostbyname(socket.gethostname())
 PORT = 10888
 MAX_SEQ = 2 ** 32
 HEAD_LEN = 20
-
 
 class Server:
     def __init__(self, host=HOST, port=PORT):
@@ -45,11 +44,13 @@ class Server:
         ack = res[0] + 1
         flag = 2
         data = make_link_header(self.seq,ack,flag=flag,time_stamp=data[-8:-4])
+        data = fill_checknum(HOST,addr[0],data)
         self.sock.sendto(data,addr)
         self.status = 'CLOSE-WAIT'
 
         self.seq %= MAX_SEQ
         data = make_link_header(self.seq,ack,flag=6)
+        data = fill_checknum(HOST,addr[0],data)
         self.sock.sendto(data,addr)
         self.status = 'LAST-ACK'
 
@@ -65,6 +66,8 @@ class Server:
         while True:
             print(self.status)
             data,addr = self.sock.recvfrom(HEAD_LEN)
+            if not check_data(addr[0],HOST,data):
+                continue
             print(addr)
             if self.recv_type == 1:
                 pass #recv data
@@ -72,6 +75,7 @@ class Server:
             print(status)
             if status == 1:
                 data =self.make_handshake(data)
+                data = fill_checknum(HOST,addr[0],data)
                 self.sock.sendto(data,addr)
                 self.status = 'SYNRCVD'
             if status == 2 and self.status == 'SYNRCVD':

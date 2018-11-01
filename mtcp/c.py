@@ -1,10 +1,11 @@
 import random
 import time
 import socket
-from tools import parse_link_header, make_link_header
+from tools import parse_link_header, make_link_header,fill_checknum,check_data
 
 
-HOST = 'localhost'
+HOST = '192.168.7.233'
+local_ip = socket.gethostbyname(socket.gethostname())
 PORT = 10888
 MAX_SEQ = 2 ** 32
 HEAD_LEN = 20
@@ -52,30 +53,39 @@ class Client:
             return make_link_header(ack, seq+1, flag=2, time_stamp=data[-8:-4])
 
     def build_con(self):
-        self.sock.sendto(self.make_start_head(),self.server)
+        data = self.make_start_head()
+        data = fill_checknum(local_ip,HOST,data)
+        self.sock.sendto(data,self.server)
         self.status = 'SYN-SENT'
         data,addr = self.sock.recvfrom(HEAD_LEN)
-        data = self.parse_ack_data(data)
-        if data:
-            self.sock.sendto(data,addr)
-            self.status = 'ESTABLISHED'
+        print(addr)
+        if check_data(HOST,local_ip,data):
+            data = self.parse_ack_data(data)
+            if data:
+                data = fill_checknum(local_ip,HOST,data)
+                self.sock.sendto(data,addr)
+                self.status = 'ESTABLISHED'
 
     def release(self):
         self.seq += 1
         self.seq %= MAX_SEQ
         data = make_link_header(self.seq, flag=4)
+        data = fill_checknum(local_ip,HOST,data)
         self.sock.sendto(data,self.server)
         self.status = 'FIN-WAIT-1'
 
         data,addr = self.sock.recvfrom(HEAD_LEN)
-        if self.deal_fin1(data):
-            self.status = 'FIN-WAIT-2'
+        if check_data(HOST,local_ip,data):
+            if self.deal_fin1(data):
+                self.status = 'FIN-WAIT-2'
         #  关闭连接第二阶段
         data,addr = self.sock.recvfrom(HEAD_LEN)
-        data = self.deal_fin2(data)
-        if data:
-            self.sock.sendto(data,self.server)
-            self.status = 'TIME-WAIT'
+        if check_data(HOST,local_ip,data):
+            data = self.deal_fin2(data)
+            if data:
+                data = fill_checknum(local_ip,HOST,data)
+                self.sock.sendto(data,self.server)
+                self.status = 'TIME-WAIT'
 
     def deal_buf(self,ack,buf):
         # clear buffer
@@ -89,10 +99,11 @@ class Client:
         t = time.time()
         for index,time_stamp in enumerate(self.buf[2]):
             if t - time_stamp > self.time_out:
-                time_data = tools.make_timestamp()
+                time_data = make_timestamp()
                 self.buf[2][i] = time_data[0]
-                data_head = tools.make_link_header(self.buf[0][i],pack_len=self.data_length,flag=2,time_stamp=time_data[1])
+                data_head = make_link_header(self.buf[0][i],pack_len=self.data_length,flag=2,time_stamp=time_data[1])
                 data = data_head + self.buf[1][i]
+                data = fill_checknum(local_ip,HOST,data)
                 self.sock.sendto(data,self.server)
 
     def reset_time_out(self):
@@ -110,9 +121,10 @@ class Client:
                 except:
                     pass
                 else:
-                    res = tools.parse_link_header(data)
-                    ack = res[1]
-                    self.deal_buf(ack,self.buf)
+                    if check_data(HOST,local_ip,data):
+                        res = parse_link_header(data)
+                        ack = res[1]
+                        self.deal_buf(ack,self.buf)
 
                 if len(self.buf[0]) >= self.wn_size :
                     self.send_timeout_data()
@@ -120,12 +132,13 @@ class Client:
                     continue
 
                 data = f.read(self.data_length)
-                time_data = tools.make_timestamp()
+                time_data = make_timestamp()
                 self.buf[2].append(time_data[0])
                 self.buf[0].append(self.seq)
                 self.buf[1].append(data)
-                data_head = tools.make_link_header(self.seq,pack_len=self.data_length,flag=2,time_stamp=time_data[1])
+                data_head = make_link_header(self.seq,pack_len=self.data_length,flag=2,time_stamp=time_data[1])
                 data = data_head + data
+                data = fill_checknum(local_ip,HOST,data)
                 self.sock.sendto(data,self.server)
                 self.seq += self.data_length
 

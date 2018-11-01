@@ -1,5 +1,6 @@
 import time
 import struct
+import socket
 
 def parse_link_header(data):
     '''解析数据包head'''
@@ -57,16 +58,33 @@ def get_checksum(IP_head):
     checksum = 65535 - loop_add(checksum)
     return struct.pack('!H',checksum)
 
+def fill_checknum(src,dst,data):
+    print(src,dst,data)
+    cdata = socket.inet_aton(src)
+    cdata += socket.inet_aton(dst)
+    checksum = get_checksum(cdata)
+    print(data[:16] + checksum + data[18:])
+    return data[:16] + checksum + data[18:]
 
-# if __name__ == '__main__':
-#     import random
-#     random.seed(50)
-#     data = [random.randint(0,256) for i in range(50)]
-#     data.extend((0,0))
-#     datab = bytearray(data)
-#     print(data,'\n',datab)
-#     ret = get_checksum(datab)
-#     print(ret)
-#     datac = datab[:-2] + ret
-#     print(datac)
-#     print(get_checksum(datac))
+def check_data(src,dst,data):
+    print(src,dst,data)
+    print(data)
+    cdata = socket.inet_aton(src)
+    cdata += socket.inet_aton(dst)
+    checksum = get_checksum(cdata)
+    res = int.from_bytes(checksum,byteorder='big')
+    if res == 0:
+        return True
+
+if __name__ == '__main__':
+    import random
+    random.seed(50)
+    data = [random.randint(0,256) for i in range(50)]
+    data.extend((0,0))
+    datab = bytearray(data)
+    print(data,'\n',datab)
+    ret = get_checksum(datab)
+    print(ret)
+    datac = datab[:-2] + ret
+    print(datac)
+    print(get_checksum(datac))
