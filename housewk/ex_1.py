@@ -63,10 +63,13 @@ def main(fdbfile='BridgeFDB.txt', rframesfile='RandomFrames.txt' , outputfile='B
                 outdatas.append(outstr)
             if rframe[0] not in fdb_datas:
                 fdb_datas[rframe[0]] = rframe[2]
+        fdb_strs = ['/t'.join((k,v)) for k,v in fdb_datas.items()]
+        fdb_strs = '\n' + 'BridgeFDB' +'\n' + '\n'.join(fdb_strs)
         if outdatas:
             try:
                 with open(outputfile,'w') as f:
                     f.writelines(outdatas)
+                    f.write(fdb_strs)
             except:
                 print('Write Error!')
 
